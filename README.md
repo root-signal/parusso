@@ -1,8 +1,10 @@
-##
+# Hi!
+
+Node: v25.1.0
 
 You can then run a local server using:
 
-`npm run start`
+`hugo server` or `npm run start`
 
 or you can build your site using:
 

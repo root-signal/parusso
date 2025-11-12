@@ -19,3 +19,5 @@ They have a [demo site available that also includes examples of how to use it](h
 The theme is installed as a git submodule. To update it, run:
 
 `git submodule update --remote --merge`
+
+Note: It's unlikely you'll need to update the git submodule, but if you do, you will have to consider any potential breaking changes in files that are moved over from the origial theme in the project /layouts and /assets.

@@ -1,0 +1,162 @@
+@use "variables";
+
+// General rules of typography that apply across the whole website.
+// Set body size.
+body {
+    font-size: 1.25em; // 20px.
+    font-weight: 400;
+    color: var(--text-color);
+    font-family: var(--header-font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @media (min-width: 500px) {
+        font-size: 1.25em; // 20px.
+    }
+}
+
+.title {
+    margin-block-start: 70px;
+    margin-block-end: 50px;
+    @media (min-width: variables.$desktop-width) {
+        margin-block-start: 100px;
+        margin-block-end: 80px;
+    }
+}
+
+h1,
+.h1 {
+    font-family: var(--body-font-family);
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 112.2%;
+    font-size: 3.5em;
+    @media (min-width: variables.$min-desktop) {
+        line-height: 115%;
+        font-size: 4em;
+    }
+}
+
+h2,
+.h2 {
+    font-family: var(--body-font-family);
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 120%;
+    font-size: 2.5em;
+    margin-block-start: 50px;
+    margin-block-end: 30px;
+    @media (min-width: variables.$min-desktop) {
+        line-height: 115%;
+        font-size: 3em;
+    }
+}
+
+h3,
+.h3 {
+    font-family: var(--header-font-family);
+    font-size: 1.75em;
+    line-height: 150%;
+    margin-block-start: 40px;
+    margin-block-end: 25px;
+    @media (min-width: variables.$min-desktop) {
+        font-size: 2em;
+    }
+}
+
+h4,
+.h4 {
+    font-family: var(--header-font-family);
+    font-weight: 900;
+    font-size: 1.25em;
+    line-height: 150%;
+    letter-spacing: 2.4px;
+    margin-block-start: 28px;
+    margin-block-end: 18px;
+    @media (min-width: variables.$min-desktop) {
+        font-size: 1.5em;
+    }
+}
+
+h5,
+.h5 {
+    font-family: var(--header-font-family);
+    font-size: 1.25em;
+    letter-spacing: 0.8px;
+    margin-block-start: 25px;
+    margin-block-end: 16px;
+    @media (min-width: variables.$min-desktop) {
+        font-size: 1.25em;
+    }
+}
+
+h6,
+.h6 {
+    font-family: var(--header-font-family);
+    font-weight: 800;
+    font-size: 1em;
+    letter-spacing: 0.8px;
+    margin-block-start: 20px;
+    margin-block-end: 14px;
+    @media (min-width: variables.$min-desktop) {
+        font-size: 1em;
+    }
+}
+
+p + p,
+ul + p,
+ol + p {
+    margin-top: 24px;
+}
+
+.content a {
+    color: var(--link-color);
+    &:hover {
+        color: var(--link-color-hover);
+        background-color: var(--link-color-bg-hover);
+    }
+    &:active {
+        color: var(--link-color-active);
+        background-color: var(--link-color-bg-active);
+    }
+    &:visited {
+        color: var(--link-color-visited);
+    }
+}
+
+li {
+    margin-bottom: 10px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+blockquote {
+    margin-block-start: 30px;
+    margin-block-end: 30px;
+    border-left: 4px solid var(--primary);
+    font-size: 16px;
+    padding-block-start: 4px;
+    padding-block-end: 4px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-left: 20px;
+    p {
+        font-style: italic;
+        margin-block-start: 10px;
+        margin-block-end: 10px;
+    }
+    @media (min-width: variables.$desktop-width) {
+        margin-block-start: 50px;
+        margin-block-end: 50px;
+    }
+    @media (min-width: variables.$min-desktop) {
+        font-size: 18px;
+        margin-inline-start: 20px;
+        margin-inline-end: 20px;
+        padding-left: 20px;
+    }
+}
+
+.highlight pre {
+    padding: 20px;
+}

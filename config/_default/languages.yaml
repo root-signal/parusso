@@ -1,0 +1,36 @@
+en:
+  languageName: English
+  weight: 1
+  ### copyright (markdown can be used) ###
+  copyright: "Copyright &copy; {{< current_year >}} Code Name: P. All Rights Reserved."
+  title: "Code Name: P"
+  params:
+    description: "Site Description"
+    ### accessibility ###
+    accessibility:
+      skip_text: "Skip to content"
+      # help_text: "Accessibility Statement"
+      # help_url: "/example-page/"
+    ### calls to action ###
+    main_cta:
+    #   text: "Join"
+    #   link: "/example-page/"
+    footer_cta:
+      # text: "Join us"
+      # link: "/example-page/"
+    github_edit: "Edit this page on GitHub"
+  ### example menu showing children ###
+  menu:
+    main:
+      - identifier: "projects"
+        name: "Projects"
+        url: "/projects/"
+        weight: 1
+      - identifier: "about"
+        name: "About me"
+        url: "/about/"
+        weight: 2
+      - identifier: "contact"
+        name: "Let's connect"
+        url: "/contact/"
+        weight: 3

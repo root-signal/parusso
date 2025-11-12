@@ -35,6 +35,6 @@ social_links:
   youtube: ""
 
 # Makes the header sticky on tall screens
-sticky_header: true
+sticky_header: false
 # Enable search in header UI
-show_search: true
+show_search: false

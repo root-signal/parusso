@@ -10,7 +10,7 @@
             <img class="logo" width="150" height="40" src="{{ . | absURL }}" alt="{{ $.Site.Title | safeHTMLAttr }}">
         </a>
         {{ else }}
-        <a class="site-title-link" href="{{ "" | absLangURL }}">
+        <a class="site-title-link" href="{{ "/" | absLangURL }}">
             <span class="site-title">{{ $.Site.Title }}</span>
         </a>
         {{ end }}

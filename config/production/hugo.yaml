@@ -1,6 +1,6 @@
 ######################## production configuration ####################
 # The base URL of your site (required). This will be prepended to all relative URLs.
-baseURL: https://root-signal.github.io/parusso/
+baseURL: "https://root-signal.github.io/parusso/"
 googleAnalytics:
 enableRobotsTXT: true
 build:

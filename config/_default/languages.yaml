@@ -19,7 +19,7 @@ en:
       # text: "Join us"
       # link: "/example-page/"
     github_edit: "Edit this page on GitHub"
-  ### example menu showing children ###
+  ### example menu showing children: themes/dot-org-hugo-theme/exampleSite/config/_default/languages.yaml ###
   menu:
     main:
       - identifier: "projects"

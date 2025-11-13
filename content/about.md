@@ -13,4 +13,4 @@ Currently I live in Portland, Oregon where I practice art and illustrate childre
 
 <!-- Images can go in the folder: assets/img/ -->
 
-![This is alt text on an image, please remember to set it](img/minion.png)
+![This is alt text on an image, please remember to set it](/img/minion.png)

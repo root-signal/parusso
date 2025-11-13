@@ -6,11 +6,11 @@
     <div class="container wrap">
 
         {{ with .Site.Params.logo_on_black }}
-        <a class="logo-link" href="{{ "/" | absLangURL }}">
+        <a class="logo-link" href="{{ '/' | absLangURL }}">
             <img class="logo" width="150" height="40" src="{{ . | absURL }}" alt="{{ $.Site.Title | safeHTMLAttr }}">
         </a>
         {{ else }}
-        <a class="site-title-link" href="{{ "/" | absLangURL }}">
+        <a class="site-title-link" href="{{ '/' | absLangURL }}">
             <span class="site-title">{{ $.Site.Title }}</span>
         </a>
         {{ end }}
@@ -55,7 +55,7 @@
                 {{ with $.Site.Params.show_search }}
                 <div class="main-menu__search-language-wrapper">
                     
-                <a href="{{ "/search" | absLangURL }}" class="main-menu-search">
+                <a href="{{ '/search' | absLangURL }}" class="main-menu-search">
                     <svg width="30" height="31" viewBox="0 0 50 52" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity=".945" fill-rule="evenodd" clip-rule="evenodd" d="M45.381 50.122 28.404 33.357l3.1-3.14 16.978 16.765-3.1 3.14Z" fill="var(--text-color)"/><path opacity=".945" fill-rule="evenodd" clip-rule="evenodd" d="M19.372 6.63c-7.63 0-13.77 6.102-13.77 13.57 0 7.469 6.14 13.57 13.77 13.57 7.631 0 13.77-6.102 13.77-13.57S27.003 6.63 19.372 6.63ZM1.19 20.2c0-9.957 8.167-17.982 18.182-17.982 10.016 0 18.182 8.025 18.182 17.982 0 9.958-8.166 17.983-18.182 17.983C9.357 38.183 1.19 30.158 1.19 20.2Z" fill="var(--text-color)"/></svg>
                 </a>
                 {{ end }}
@@ -79,7 +79,7 @@
     </div>
 
     <div class="header-shape-divider">
-        <svg width="176%" height="137" viewBox="0 0 1440 320" preserveAspectRatio="none" style="transform: scaleX(-1);">
+        <svg width="175%" height="135" viewBox="0 0 1440 320" preserveAspectRatio="none" style="transform: scaleX(-1);">
             <path fill="currentColor" d="M1440,0L1392,64C1344,128,1248,256,1152,256C1056,256,960,128,864,85.3C768,43,672,85,576,106.7C480,128,384,128,288,106.7C192,85,96,43,48,21.3L0,0L0,320L48,320C96,320,192,320,288,320C384,320,480,320,576,320C672,320,768,320,864,320C960,320,1056,320,1152,320C1248,320,1344,320,1392,320L1440,320Z"></path>
         </svg>
     </div>

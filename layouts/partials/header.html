@@ -10,8 +10,9 @@
             <img class="logo" width="150" height="40" src="{{ . | absURL }}" alt="{{ $.Site.Title | safeHTMLAttr }}">
         </a>
         {{ else }}
-        <a class="site-title-link" href="{{ "/" | absLangURL }}">
+        <a class="site-title-link" href="{{ "" | absLangURL }}">
             <span class="site-title">{{ $.Site.Title }}</span>
+            <span class="site-subtitle">{{ $.Site.Params.Subtitle }}</span>
         </a>
         {{ end }}
         
@@ -68,10 +69,8 @@
             </div>
 
         </nav>
-        <button class="hamburger" type="button" aria-label="Toggle Menu">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
+        <button id="menu-toggle" class="menu-toggle-button" type="button" aria-label="Open Menu" aria-expanded="false">
+            <span>Menu</span>
         </button>
         {{ else }}
         <p>Create pages or add <pre>.Site.Menus.main</pre> to config to activate menu.</p>
@@ -79,7 +78,7 @@
     </div>
 
     <div class="header-shape-divider">
-        <svg width="175%" height="135" viewBox="0 0 1440 320" preserveAspectRatio="none" style="transform: scaleX(-1);">
+        <svg  viewBox="0 0 1440 320" preserveAspectRatio="none" style="transform: scaleX(-1);">
             <path fill="currentColor" d="M1440,0L1392,64C1344,128,1248,256,1152,256C1056,256,960,128,864,85.3C768,43,672,85,576,106.7C480,128,384,128,288,106.7C192,85,96,43,48,21.3L0,0L0,320L48,320C96,320,192,320,288,320C384,320,480,320,576,320C672,320,768,320,864,320C960,320,1056,320,1152,320C1248,320,1344,320,1392,320L1440,320Z"></path>
         </svg>
     </div>

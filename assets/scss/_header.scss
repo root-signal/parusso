@@ -36,9 +36,9 @@
         justify-content: space-between;
         align-items: center;
         align-content: center;
-        height: 60px;
+        // height: 60px;
         @media (min-width: variables.$min-desktop) {
-            height: 80px;
+            // height: 80px;
         }
     }
 
@@ -64,17 +64,48 @@
 
     .site-title-link {
         text-decoration: none;
-        color: var(--primary);
-        font-family: var(--body-font-family);
-        font-weight: 700;
-        font-size: 20px;
+        color: var(--white);
+        line-height: 1;
         @media (min-width: variables.$min-desktop) {
             flex-shrink: 0;
-            font-size: 22px;
+            line-height: 1.5;
         }
-        @media (min-width: variables.$desktop-width) {
-            font-size: 28px;
+        .site-title{
+            display: block;
+            font-family: var(--body-font-family);
+            font-weight: 700;
+            font-size: 1.5em;
+            @media (min-width: variables.$min-desktop) {
+                font-size: 2em;
+            }
+            @media (min-width: variables.$desktop-width) {
+                font-size: 3em;
+            }
+            .has-menu-active & {
+                color: var(--primary);
+            }
         }
+
+        .site-subtitle{
+            display: block;
+            font-weight: 700;
+            .has-menu-active & {
+                display: none;
+            }
+            
+        }
+    }
+}
+
+.menu-toggle-button{
+    border: none;
+    background-color: transparent;
+    color: var(--white);
+    text-decoration: underline;
+    font-weight: 700;
+
+    .has-menu-active & {
+        color: var(--primary);
     }
 }
 
@@ -129,6 +160,8 @@
             @media (prefers-reduced-motion: reduce) {
                 transition: none;
             }
+
+
             &:hover {
                 color: var(--menu-link-color-hover);
                 &.external-link:after,
@@ -242,6 +275,7 @@
     // Top row only.
     .top-menu-item {
         > a {
+            color: var(--link-color);
             padding-top: 25px;
             padding-bottom: 25px;
             border-bottom: 1px solid var(--gray-300);
@@ -254,6 +288,7 @@
             }
             @media (min-width: variables.$min-desktop) {
                 border-bottom: 0;
+                color: var(--white);
             }
         }
         @media (min-width: variables.$min-desktop) {

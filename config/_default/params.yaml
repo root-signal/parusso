@@ -1,13 +1,13 @@
 ######################## custom scripts & styles ####################
 
 # Add custom assets relative to /static or via https
-logo_on_white: "img/logo-b.svg"
-logo_on_black: "img/logo-w.svg"
+# logo_on_white: "img/logo-b.svg"
+# logo_on_black: "img/logo-w.svg"
 custom_js: []
 custom_css: []
 
 ######################## custom config ####################
-
+subtitle: "UX designer and strategist"
 ### default social share image (can also be set per lang) ###
 images: ["img/social-share.png"]
 

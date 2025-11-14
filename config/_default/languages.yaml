@@ -2,8 +2,8 @@ en:
   languageName: English
   weight: 1
   ### copyright (markdown can be used) ###
-  copyright: "Copyright &copy; {{< current_year >}} Code Name: P. All Rights Reserved."
-  title: "Code Name: P"
+  copyright: "Copyright &copy; {{< current_year >}} Peter Russo. All Rights Reserved."
+  title: "Peter Russo"
   params:
     description: "Site Description"
     ### accessibility ###

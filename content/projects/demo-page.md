@@ -258,11 +258,6 @@ Images expand to fit the content width.
 
 Coming soon: Advanced image handling, lazy loading, etc.
 
-<!-- ## Tweets -->
-<!-- Commenting out because it breaks the build... -->
-<!-- Embedding tweets like this loads lots of tracking scripts and is not recommended. Use a screenshot of the tweet and link the image to the real tweet.
-
-{{< x user="SanDiegoZoo" id="1453110110599868418" >}} -->
 
 ## Iframe
 

@@ -4,9 +4,7 @@ subtitle: "Ad Hoc | Department of Veterans Affairs"
 layout: project
 summary: "Identified bugs and user needs faster."
 slug: "example-slug-2"
-weight: 20
-# These project pages have default h1 text of "Project"
-showHeader: false 
+weight: 20 # Use this to set the order it appears in the projects list
 # Description and images are for search results, social media posts, etc
 description: "TBD"
 images: ["https://via.placeholder.com/250x200/d9d9d9/000000"]

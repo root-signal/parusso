@@ -1,7 +1,7 @@
 ---
 title: "Operationalized continuous discovery"
 subtitle: "Ad Hoc | Department of Veterans Affairs"
-layout: project
+layout: "project"
 summary: "Identified bugs and user needs faster."
 slug: "example-slug"
 weight: 10 # Use this to set the order it appears in the projects list

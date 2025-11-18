@@ -11,9 +11,16 @@
                     {{ if and (eq .Kind "page") (ne .Section "") }}
                     {{- partial "breadcrumb.html" . -}}
                     {{ end }}
+                    {{ if eq .Params.layout "project"}}
+                        <h1>Project</h1>
+                        <h2>{{ .Title }}</h2>
+                        <span>{{ .Params.Subtitle }}</span>
+                    {{ else }}
                     <h1>{{ .Title }}</h1>
+                    {{ end }}
                 </header>
             {{ end }}
+
             {{ if or (eq .Kind "section") (eq .Kind "home") }}
             <div class="content">
             {{ else }}

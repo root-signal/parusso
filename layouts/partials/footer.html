@@ -8,10 +8,10 @@
 
 
     <div class="container wrap">
-
-        <div class="footer__menu-cta-wrapper">
-
-            <div class="footer__menu">
+        <span class="h2">Next up</span>
+        <div class="footer-menu-cta-wrapper">
+            
+            <div class="footer-menu">
                 {{/* Store menu items without children in a Scratch */}}
                 {{ $.Scratch.Set "noChildrenItems" slice }}
 
@@ -42,7 +42,6 @@
                 {{ end }}
                 {{/* Render all items without children inside a single column div */}}
                 <div class="column no-children-links">
-                    <p class="top-menu-item">&nbsp;</p>
                     <ul>
                         {{ range $.Scratch.Get "noChildrenItems" }}
                         <li class="menu-item">
@@ -56,14 +55,15 @@
 
             {{ with .Site.Params.footer_cta }}
             {{ if and .text .link }}
-            <div class="footer__cta">
+            <div class="footer-cta">
                 <a href="{{ .link | absLangURL }}" class="button tertiary">{{ .text }}</a>
             </div>
             {{ end }}
             {{ end }}
         </div>
 
-        <div class="footer__logo-social-wrapper">
+        <div class="footer-logo-social-wrapper">
+            <span class="social-pre-text">Peter Russo</span>
             {{ with .Site.Params.logo_on_black }}
             <a class="logo-link" href="{{ "" | absLangURL }}">
                 <img loading="lazy" class="logo" width="150" height="40" src="{{ . | absURL }}" alt="{{ $.Site.Title | safeHTMLAttr }}"></a>
@@ -72,12 +72,10 @@
             {{- partial "footer/social-links.html" . -}}
         </div>
 
-        <hr class="footer-hr">
-
         <div class="copyright">
             <p>{{ .Site.Copyright | default "Copyright &copy; {{< current_year >}} All Rights Reserved. [Dot Org Theme](https://github.com/cncf/dot-org-hugo-theme) for Hugo by [CNCF](https://www.cncf.io)." | markdownify }}</p>
 
-            <div class="copyright__accessibility-git-wrapper">
+            <div class="copyright-accessibility-git-wrapper">
                 {{ if .Site.Params.accessibility.help_url }}
                 <a href="{{ .Site.Params.accessibility.help_url }}" class="nowrap">{{ .Site.Params.accessibility.help_text | default
                     "Accessibility Statement" }}</a>

@@ -11,7 +11,7 @@
                     {{ if and (eq .Kind "page") (ne .Section "") }}
                     {{- partial "breadcrumb.html" . -}}
                     {{ end }}
-                    <h1 class="title">{{ .Title }}</h1>
+                    <h1>{{ .Title }}</h1>
                 </header>
             {{ end }}
             {{ if or (eq .Kind "section") (eq .Kind "home") }}

@@ -5,7 +5,6 @@
     width: 100%;
     background: var(--white);
     z-index: 20;
-
     position: relative;
     &.sticky {
         position: sticky;
@@ -72,14 +71,14 @@
         }
         .site-title{
             display: block;
-            font-family: var(--body-font-family);
+            font-family: var(--header-font-family);
             font-weight: 700;
             font-size: 1.5em;
             @media (min-width: variables.$min-desktop) {
-                font-size: 2em;
+                font-size: 3.625em;
             }
             @media (min-width: variables.$desktop-width) {
-                font-size: 3em;
+                font-size: 3.625em;
             }
             .has-menu-active & {
                 color: var(--primary);
@@ -107,10 +106,15 @@
     .has-menu-active & {
         color: var(--primary);
     }
+
+    @media (min-width: variables.$min-desktop) {
+        display: none;
+    }
 }
 
 .main-menu {
     background-color: var(--white);
+    
     padding-left: 12px;
     padding-right: 12px;
     @media (min-width: 372px) {
@@ -123,7 +127,7 @@
         width: 100%;
         padding-left: 0px;
         padding-right: 0px;
-        margin-left: clamp(50px, 5vw, 75px);
+        // margin-left: clamp(50px, 5vw, 75px);
     }
     @media (max-width: variables.$mobile-max) {
         position: fixed;
@@ -145,14 +149,13 @@
             transition: none;
         }
     }
-    &__wrapper {
+    .main-menu-wrapper {
         margin-left: 0; // reset.
         padding-left: 0; // reset.
         // All Links.
         a {
             display: block;
             color: var(--menu-link-color);
-            font-family: var(--header-font-family);
             font-style: normal;
             font-weight: 700;
             line-height: 1.5;
@@ -162,17 +165,18 @@
             }
 
 
+
             &:hover {
                 color: var(--menu-link-color-hover);
                 &.external-link:after,
-                &.child-external-link span.menu-item__name:after {
+                &.child-external-link span.menu-item-name:after {
                     filter: invert(35%) sepia(54%) saturate(0%) hue-rotate(152deg) brightness(91%) contrast(75%);
                 }
             }
         }
 
         .external-link:after,
-        .child-external-link span.menu-item__name:after {
+        .child-external-link span.menu-item-name:after {
             content: "";
             display: inline-block;
             vertical-align: middle;
@@ -193,7 +197,7 @@
             &:last-child {
                 margin-bottom: 0;
             }
-            &__description {
+            .menu-item-description {
                 color: var(--gray-700);
                 display: block;
                 font-weight: 400;
@@ -208,16 +212,18 @@
         }
         @media (min-width: variables.$min-desktop) {
             display: flex;
+            justify-content: flex-end;
+            width: 100%;
         }
     }
-    &__cta-language-wrapper {
+    .main-menu-cta-language-wrapper {
         @media (min-width: variables.$min-desktop) {
             margin-left: auto;
             display: flex;
             align-items: center;
         }
     }
-    &__search-language-wrapper {
+    .main-menu-search-language-wrapper {
         display: flex;
         @media (max-width: variables.$mobile-max) {
             flex-direction: row-reverse;
@@ -274,15 +280,20 @@
 
     // Top row only.
     .top-menu-item {
+        @media (min-width: variables.$min-desktop) {
+            display: flex;
+            justify-items: flex-end;
+            margin-left: 20px;
+        }
         > a {
             color: var(--link-color);
             padding-top: 25px;
             padding-bottom: 25px;
-            border-bottom: 1px solid var(--gray-300);
             padding-right: 5px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            transition: none;
             &.is-open {
                 border-width: 4px;
             }
@@ -290,12 +301,6 @@
                 border-bottom: 0;
                 color: var(--white);
             }
-        }
-        @media (min-width: variables.$min-desktop) {
-            margin-right: 20px;
-        }
-        @media (min-width: variables.$desktop-width) {
-            margin-right: 60px;
         }
     }
 
@@ -378,7 +383,7 @@
             // style.
             min-width: 330px;
         }
-        &__nav {
+        .sub-menu-nav {
             margin-left: 0; // reset.
             padding-left: 0; // reset.
             @media (min-width: variables.$min-desktop) {

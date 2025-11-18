@@ -9,14 +9,14 @@
     @media (min-width: variables.$min-desktop) {
         margin-bottom: 80px;
     }
-    &__title {
+    .blog-item-title {
         margin-block-start: 0;
         margin-block-end: 0;
         a {
             text-decoration: none;
         }
     }
-    &__byline {
+    .blog-item-byline {
         margin-block-start: 15px;
         margin-block-end: 12px;
         p {
@@ -29,7 +29,6 @@
             font-weight: 700;
             line-height: 150%;
             letter-spacing: 2.1px;
-            text-transform: uppercase;
             margin-right: 5px;
             @media (min-width: 600px) {
                 font-size: 16px;
@@ -40,12 +39,12 @@
             color: var(--primary);
         }
     }
-    &__author {
+    .blog-item-author {
         a {
             text-decoration: none;
         }
     }
-    &__summary {
+    .blog-item-summary {
         margin-block-start: 0;
         margin-block-end: 0;
     }
@@ -53,7 +52,7 @@
 
 // Singular blog page.
 .blog.page-page {
-    .blog-item__byline {
+    .blog-item-byline {
         margin-block-end: 50px;
     }
 }

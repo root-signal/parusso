@@ -1,11 +1,10 @@
 @use "variables";
 
 .breadcrumbs {
-    margin-block-start: 70px;
+    margin-block-start: 20px;
     margin-block-end: 0;
-    font-family: var(--header-font-family);
     @media (min-width: variables.$desktop-width) {
-        margin-block-start: 100px;
+        margin-block-start: 40px;
         margin-block-end: 0;
     }
 }
@@ -21,18 +20,23 @@
 }
 
 .breadcrumb {
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%;
-    a {
-        color: var(--gray-800);
+    color: var(--link-color);
+    &:hover {
+        color: var(--link-color-hover);
+        background-color: var(--link-color-bg-hover);
+    }
+    &:active {
+        color: var(--link-color-active);
+        background-color: var(--link-color-bg-active);
+    }
+    &:visited {
+        color: var(--link-color-visited);
     }
 }
 
 .breadcrumb + .breadcrumb::before {
     content: "»";
     margin-right: 5px;
-    color: var(--gray-600);
 }
 
 .breadcrumbs + .title,

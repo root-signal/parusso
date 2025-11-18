@@ -8,6 +8,11 @@
 	padding-bottom: 60px;
 	color: var(--footer-link-color);
 
+	.h2 {
+		margin-top: 0;
+		color: var(--white)
+	}
+
 	a {
 		color: var(--footer-link-color);
 		&:hover {
@@ -20,7 +25,7 @@
 		padding-inline-start: 0;
 	}
 
-	&__menu-cta-wrapper {
+	.footer-menu-cta-wrapper {
 		@media (min-width: variables.$min-desktop) {
 			display: flex;
 			align-items: flex-start;
@@ -28,29 +33,29 @@
 		}
 	}
 
-	&__menu {
-		display: none;
-		@media (min-width: variables.$min-desktop) {
-			flex-shrink: 0;
-			flex-grow: 1;
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(125px, 200px));
-			gap: 15px;
+	.footer-menu {
+		@media (min-width: variables.$min-desktop) {		
+			margin-top: 20px;	
+			ul {
+				display: flex;
+				li{
+					margin-right: 40px;
+				}
+			}
+
 			a {
-				font-size: 1em;
-				font-weight: 400;
-				text-decoration: none;
+				font-weight: 700;
 			}
 			.top-menu-item {
 				font-size: 1.25em;
-				font-weight: 800;
+				font-weight: 700;
 				margin-top: 0;
 				margin-bottom: 20px;
 			}
 		}
 	}
 
-	&__cta {
+	.footer-cta {
 		@media (min-width: variables.$min-desktop) {
 			flex-grow: 0;
 		}
@@ -68,11 +73,18 @@
 		}
 	}
 
-	&__logo-social-wrapper {
+	.footer-logo-social-wrapper {
 		display: flex;
 		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
+		align-content: center;
+		.social-pre-text {
+			display: block;
+			font-size: 1em;
+			font-family: var(--header-font-family);
+			font-weight: 700;
+			margin-right: 20px;
+			line-height: 1em;
+		}
 	}
 
 	.logo-link {
@@ -83,36 +95,37 @@
 	}
 
 	.social-links {
-		margin-top: 20px;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
-		gap: 20px;
+		gap: 10px;
 		a {
 			display: flex;
 			align-items: center;
 			align-content: center;
 			justify-content: center;
-			padding: 10px;
-			&:hover {
-				opacity: 0.8;
+			font-size: .75em;
+			font-weight: 700;
+			color: var(--white);
+
+			img {
+				margin-right: 10px;
 			}
-		}
-		@media (min-width: variables.$min-desktop) {
-			margin-top: 0;
+
+			&:hover {
+				color: var(--butter);
+			}
 		}
 	}
 
 	.copyright {
-		font-size: 11px;
-		line-height: 150%;
-		letter-spacing: 0.2px;
+		font-size: .75em;
+		margin-top: 20px;
 		a {
-			font-weight: 800;
-			text-decoration: none;
+			font-weight: 700;
 		}
-		&__accessibility-git-wrapper {
+		.copyright-accessibility-git-wrapper {
 			@media (max-width: variables.$mobile-max) {
 				margin-top: 20px;
 				a {

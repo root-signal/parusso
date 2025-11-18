@@ -1,6 +1,7 @@
 ######################## custom scripts & styles ####################
 
 # Add custom assets relative to /static or via https
+# Comment these back in if you want to replace the text that is there now.
 # logo_on_white: "img/logo-b.svg"
 # logo_on_black: "img/logo-w.svg"
 custom_js: []
@@ -15,6 +16,9 @@ github:
   repo_url: "https://github.com/username/repo/blob/master"
   show_edit_link: false
 
+# You can add additional social links as needed (eg, bluesky: "bsky.social")
+# To add a new svg icon, stick it in /static/img/social-icons with the same key (eg, bluesky.svg)
+show_social_icons: false
 social_links:
   devstats: ""
   discord: ""
@@ -33,6 +37,7 @@ social_links:
   twitter: ""
   x: ""
   youtube: ""
+  gmail: "mailto:parusso@gmail.com"
 
 # Makes the header sticky on tall screens
 sticky_header: false

@@ -1,14 +1,14 @@
 const accordions = document.querySelectorAll(".accordion");
 
 const openAccordion = (accordion) => {
-    const content = accordion.querySelector(".accordion__content");
-    accordion.classList.add("accordion__active");
+    const content = accordion.querySelector(".accordion-content");
+    accordion.classList.add("accordion-active");
     content.style.maxHeight = content.scrollHeight + "px";
 };
 
 const closeAccordion = (accordion) => {
-    const content = accordion.querySelector(".accordion__content");
-    accordion.classList.remove("accordion__active");
+    const content = accordion.querySelector(".accordion-content");
+    accordion.classList.remove("accordion-active");
     content.style.maxHeight = null;
 };
 
@@ -27,8 +27,8 @@ const getScrollOffset = () => {
 };
 
 accordions.forEach((accordion) => {
-    const title = accordion.querySelector(".accordion__title");
-    const content = accordion.querySelector(".accordion__content");
+    const title = accordion.querySelector(".accordion-title");
+    const content = accordion.querySelector(".accordion-content");
 
     title.onclick = () => {
         if (content.style.maxHeight) {

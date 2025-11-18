@@ -13,7 +13,10 @@
         {{ range $validLinks }}
         <li>
             <a href="{{ .value }}" title="{{ i18n "social_link_title" (dict "SiteTitle" $siteTitle "Network" (humanize .key)) | default (printf "%s on %s" $siteTitle (humanize .key)) }}">
-                <img loading="lazy" width="31" height="31" src="{{ printf "img/social-icons/%s.svg" .key | absURL }}" alt="{{ (humanize .key) | safeHTMLAttr }} icon">
+                {{ if $.Site.Params.show_social_icons }}
+                    <img loading="lazy" width="25" height="25" src="{{ printf "img/social-icons/%s.svg" .key | absURL }}" alt="{{ (humanize .key) | safeHTMLAttr }} icon">
+                {{ end }}
+                <span>{{ (humanize .key) | safeHTMLAttr }}</span>
             </a>
         </li>
         {{ end }}

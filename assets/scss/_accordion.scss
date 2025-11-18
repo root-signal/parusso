@@ -12,7 +12,7 @@
     overflow: hidden;
     border-bottom: 1px solid var(--gray-600);
 
-    &__title {
+    .accordion-title {
         position: relative;
         cursor: pointer;
         display: flex;
@@ -42,7 +42,7 @@
         }
     }
 
-    &__content {
+    .accordion-content {
         max-height: 0;
         overflow: hidden;
         will-change: max-height;
@@ -67,14 +67,14 @@
         }
     }
 
-    &__active {
-        .accordion__title {
+    .accordion-active {
+        .accordion-title {
             .cross .vertical {
                 opacity: 0;
             }
         }
 
-        .accordion__content {
+        .accordion-content {
             margin-bottom: 34px;
             opacity: 1;
             @media (min-width: variables.$min-desktop) {

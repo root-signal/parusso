@@ -1,0 +1,107 @@
+
+
+{{ define "main" }}
+    {{ $title := .Params.Title }}
+    <div class="home-split">
+        <div class="home-content">
+            <div class="home-header">
+                <h1>{{$title}}</h1>
+                <div class="home-face">
+                    <button
+                        class="js-the-button-with-the-face"
+                        type="button"
+                        aria-label="Change portrait image (currently showing portrait 1 of 9)"
+                        role="img">
+                    </button>
+                </div>
+            </div>
+            {{ .Content }}
+        </div>
+        <div class="home-face-desktop">
+            <button
+                class="js-the-button-with-the-face"
+                type="button"
+                aria-label="Change portrait image (currently showing portrait 1 of 9)"
+                role="img">
+            </button>
+        </div>
+    </div>
+    {{/*  Javascript inlined for your convenience.  */}}
+    <script>
+        (function() {
+            // ========================================
+            // CONFIGURATION
+            // ========================================
+            // To add more images:
+            // 1. Add new numbered files (e.g., parusso10.png, parusso11.png)
+            // 2. Update totalImages to match the count
+            // 3. Ensure files follow the naming pattern: parusso[NUMBER].png
+
+            const totalImages = 9;  // Update this if you add/remove images
+            const imagePrefix = '{{ "img/parusso" | absURL }}';  // Path to images (Hugo templating)
+            const imageExt = '.png';  // File extension for all images
+
+            // ========================================
+            // INITIALIZATION
+            // ========================================
+            // Get reference to the button element
+            const buttons = document.querySelectorAll('.js-the-button-with-the-face');
+
+            buttons.forEach((button) => {
+                // Pick a random starting image (1 through totalImages)
+                // This ensures each page load shows a different portrait
+                let currentIndex = Math.floor(Math.random() * totalImages) + 1;
+
+                // ========================================
+                // CORE FUNCTIONS
+                // ========================================
+
+                /**
+                * Updates the button's background image and accessibility label
+                * @param {number} index - The image number to display (1-based)
+                */
+                function updateImage(index) {
+                    // Construct the full image path (e.g., "img/parusso3.png")
+                    const imagePath = imagePrefix + index + imageExt;
+
+                    // Set the button's background image via inline CSS
+                    button.style.backgroundImage = 'url(' + imagePath + ')';
+
+                    // Update aria-label for screen readers
+                    // This tells assistive technology which portrait is showing
+                    button.setAttribute('aria-label', 'Portrait ' + index + ' of ' + totalImages + '. Click to change portrait.');
+                }
+
+                /**
+                * Advances to the next portrait in sequence
+                * Cycles back to 1 after reaching the last image
+                */
+                function nextImage() {
+                    // Use modulo to wrap around: 9 % 9 = 0, then add 1 to get back to 1
+                    currentIndex = (currentIndex % totalImages) + 1;
+                    updateImage(currentIndex);
+                }
+
+                // ========================================
+                // EVENT LISTENERS
+                // ========================================
+
+                // Display the initial random image on page load
+                updateImage(currentIndex);
+
+                // Change image when button is clicked
+                button.addEventListener('click', nextImage);
+
+                // Handle keyboard interaction for accessibility
+                // Allows users to activate with Enter or Space key
+                button.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();  // Prevent default scrolling behavior for Space key
+                        nextImage();
+                    }
+                });
+            })
+        })();
+    </script>
+{{ end }}
+

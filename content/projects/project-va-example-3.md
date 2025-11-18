@@ -1,20 +1,25 @@
 ---
-title: "Operationalized continuous discovery"
+title: "Integrate several scheduling tools into a single portal"
+linkTitle: "Single Portal"
 subtitle: "Ad Hoc | Department of Veterans Affairs"
+layout: project
+summary: "Identified bugs and user needs faster."
+slug: "example-slug-3"
+weight: 30
+# These project pages have default h1 text of "Project"
+showHeader: false 
 # Description and images are for search results, social media posts, etc
-description: TBD
+description: "TBD"
 images: ["https://via.placeholder.com/250x200/d9d9d9/000000"]
+
 ---
-
-{{< intro >}}
 I developed a process for analyzing user feedback that helped our stakeholders identify high value features, helped the team catch and fix production bugs that were directly affecting users, and gave the team a way to track the success of releases.
-{{< /intro >}}
 
-## Background
+### Background
 
 Every day we would receive 50-100 comments about the appointments tool through an anonymous feedback form and an intercept survey. We needed a process to understand what the recurring themes were, and whether we were really mitigating issues over time.
 
-## My work
+### My work
 
 - I created a method to analyze feedback for themes, sentiment, and feature requests:
 - I captured all the feedback in Excel, as all data needed to remain on the VA network to avoid exposing PHI/PII, and getting buy-in on using new tools was a challenge.
@@ -26,7 +31,7 @@ Every day we would receive 50-100 comments about the appointments tool through a
 
 [TODO: Replace images/tell story of better data leading to changes in the roadmap]
 
-## Outcome
+### Outcome
 
 This tool made life easier for the team in a few ways.
 

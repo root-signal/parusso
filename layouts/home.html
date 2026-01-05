@@ -2,10 +2,12 @@
 
 {{ define "main" }}
     {{ $title := .Params.Title }}
-    <div class="home-split">
+    
         <div class="home-content">
             <div class="home-header">
-                <h1>{{$title}}</h1>
+                <div class="home-title">
+                    <h1>{{$title}}</h1>
+                </div>
                 <div class="home-face">
                     <button
                         class="js-the-button-with-the-face"
@@ -15,17 +17,11 @@
                     </button>
                 </div>
             </div>
-            {{ .Content }}
+            <section>
+                {{ .Content }}
+            </section>
         </div>
-        <div class="home-face-desktop">
-            <button
-                class="js-the-button-with-the-face"
-                type="button"
-                aria-label="Change portrait image (currently showing portrait 1 of 9)"
-                role="img">
-            </button>
-        </div>
-    </div>
+
     {{/*  Javascript inlined for your convenience.  */}}
     <script>
         (function() {

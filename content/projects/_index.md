@@ -5,9 +5,9 @@ description: TBD
 images: ["https://via.placeholder.com/250x200/d9d9d9/000000"]
 readMoreText: "Read the case study →"
 listIntro: 
-  "## Key Projects
+  "## Featured projects
 
-  Work since 2020"
+  Highlights from my work in healthcare and civic tech"
 ---
 <!-- This content appears after the list of projects, 
 which is created by adding a .md file to this directory. -->

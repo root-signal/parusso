@@ -107,7 +107,7 @@ h6,
 p + p,
 ul + p,
 ol + p {
-    margin-top: 24px;
+    margin-top: 2rem;
 }
 
 .content a {
@@ -126,7 +126,7 @@ ol + p {
 }
 
 li {
-    margin-bottom: 10px;
+    margin-bottom: 1.5rem;
     &:last-child {
         margin-bottom: 0;
     }

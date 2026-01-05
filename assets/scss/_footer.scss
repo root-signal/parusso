@@ -4,13 +4,38 @@
 .footer {
 	// Space from content.
 	margin-top: 70px;
-	padding-top: 60px;
-	padding-bottom: 60px;
+	padding-top: 5rem;
+	padding-bottom: 1.5rem;
 	color: var(--footer-link-color);
+
+	// Start Shape
+	position: relative;
+  background: var(--primary);
+  background: linear-gradient(0deg, #006638 0%, #307533 80%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+
+	.footer-shape-divider {
+		color: var(--cream);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+		line-height: 0;
+	}
+
+	.footer-shape-divider svg {
+		display: block;
+		width: 100%;
+		height: 75px;
+	}
+	// End Shape
 
 	.h2 {
 		margin-top: 0;
-		color: var(--white)
+		color: var(--white);
 	}
 
 	a {
@@ -26,6 +51,8 @@
 	}
 
 	.footer-menu-cta-wrapper {
+		margin-top: 1.5rem;
+		margin-bottom: 4rem;
 		@media (min-width: variables.$min-desktop) {
 			display: flex;
 			align-items: flex-start;

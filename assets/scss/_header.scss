@@ -3,9 +3,54 @@
 
 .header {
     width: 100%;
-    background: var(--white);
+    background: var(--primary);
+    background: linear-gradient(180deg, #006638 0%, #307533 20%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     z-index: 20;
     position: relative;
+
+    .has-menu-active & {
+        background: var(--white);
+    }
+
+    .header-shape-divider {
+        color: var(--cream);
+        overflow: hidden;
+        .has-menu-active & {
+            color: var(--white);
+        }
+    }
+
+    .header-shape-divider {
+        svg {
+            display: block;
+            width: 100%;
+            height: 45px;
+            transform: rotate(180deg);
+
+            .page-home & {
+                height: 110px;
+            }
+
+            @media (min-width: variables.$min-desktop) {
+                width: 100%;
+                height: 145px;
+
+                .page-home & {
+                    height: 110px;
+                }
+            }
+
+            .page-home & {
+                -webkit-transform: scaleX(-1) rotate(180deg);
+                transform: scaleX(-1) rotate(180deg);
+            }
+        }
+        
+    }
+
     &.sticky {
         position: sticky;
         top: 0;
@@ -14,18 +59,6 @@
         // remove sticky on smaller screens.
         @media (min-width: 515px) and (max-height: 615px) {
             position: relative;
-        }
-    }
-    &:after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        width: 100%;
-        height: 20px;
-        z-index: 10;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-        @media (min-width: variables.$min-desktop) {
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
         }
     }
 
@@ -65,17 +98,29 @@
         text-decoration: none;
         color: var(--white);
         line-height: 1;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
         @media (min-width: variables.$min-desktop) {
             flex-shrink: 0;
             line-height: 1.5;
+            margin-top: 0;
         }
         .site-title{
             display: block;
             font-family: var(--header-font-family);
             font-weight: 700;
-            font-size: 1.5em;
+            font-size: 1;
+
+            .page-home & {
+                font-size: 1.25em;
+            }
+
             @media (min-width: variables.$min-desktop) {
-                font-size: 3.625em;
+                font-size: 2em;
+                .page-home & {
+                    font-size: 3.625em;
+                }
             }
             @media (min-width: variables.$desktop-width) {
                 font-size: 3.625em;
@@ -86,12 +131,21 @@
         }
 
         .site-subtitle{
-            display: block;
-            font-weight: 700;
+            display: none;
+            .page-home & {
+                display: block;
+                font-size: .75em;
+                margin-top: 5px;
+
+                @media (min-width: variables.$min-desktop) {
+                    font-size: 1em;
+                    margin-top: 0;
+                }
+            }       
             .has-menu-active & {
-                display: none;
-            }
-            
+                color: var(--primary);
+            }     
+            font-weight: 700;            
         }
     }
 }
@@ -114,7 +168,6 @@
 
 .main-menu {
     background-color: var(--white);
-    
     padding-left: 12px;
     padding-right: 12px;
     @media (min-width: 372px) {
@@ -127,23 +180,25 @@
         width: 100%;
         padding-left: 0px;
         padding-right: 0px;
-        // margin-left: clamp(50px, 5vw, 75px);
+        background-color: transparent;
     }
     @media (max-width: variables.$mobile-max) {
         position: fixed;
         left: -100%;
         top: 60px;
-        bottom: 0;
         z-index: 5;
         width: 100%;
-        height: 100%;
+        border-radius: 0 0 3rem 3rem;
         overflow-y: scroll;
-        padding-bottom: 120px;
+        padding-bottom: 60px;
         transition: top 0.5s ease-in-out;
         transform-style: preserve-3d;
+        
+
         // activate the menu.
         &.is-active {
             left: 0;
+            box-shadow: 0px 16px 11px 0px rgba(0, 0, 0, 0.20);
         }
         @media (prefers-reduced-motion: reduce) {
             transition: none;
@@ -163,8 +218,6 @@
             @media (prefers-reduced-motion: reduce) {
                 transition: none;
             }
-
-
 
             &:hover {
                 color: var(--menu-link-color-hover);
@@ -300,6 +353,11 @@
             @media (min-width: variables.$min-desktop) {
                 border-bottom: 0;
                 color: var(--white);
+            }
+
+            @media (max-width: variables.$mobile-max) {
+                padding: 4px 0;
+                font-weight: 500;
             }
         }
     }

@@ -14,10 +14,9 @@ body {
 .container {
 	margin: auto;
 	width: 100%;
-	max-width: 100%;
-	@media (min-width: variables.$desktop-width) {
+
 		max-width: var(--container-width);
-	}
+	
 }
 
 .wrap {

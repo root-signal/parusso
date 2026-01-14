@@ -55,16 +55,19 @@ Built with Hugo static site generator, featuring a custom theme based on [Dot-Or
 ### Initial Setup
 
 1. Clone the repository with submodules:
+
 ```bash
-git clone --recurse-submodules <repository-url>
+git clone --recurse-submodules https://github.com/root-signal/parusso.git
 ```
 
 If you already cloned without submodules:
+
 ```bash
 git submodule update --init --recursive
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
@@ -86,6 +89,7 @@ hugo server
 The site will be available at `http://localhost:1313/parusso/`
 
 The development server includes:
+
 - Live reload on file changes
 - Draft and future content rendering
 - Detailed logging and performance metrics
@@ -127,29 +131,33 @@ title: "Page Title"
 date: 2024-11-18
 description: "Description for SEO and social media"
 images: ["https://example.com/image.jpg"]
-showHeader: false          # Optional: hide page title
-noindex: true             # Optional: prevent search engine indexing
-layout: home              # Optional: specify custom layout
+showHeader: false # Optional: hide page title
+noindex: true # Optional: prevent search engine indexing
+layout: home # Optional: specify custom layout
 ---
-
 Your markdown content here...
 ```
 
 ### Custom Frontmatter Options
 
 #### Hide Page Title/Header
+
 ```yaml
 showHeader: false
 ```
 
 #### Add Noindex Meta Tag
+
 Page is published but tells search engines not to index it
+
 ```yaml
 noindex: true
 ```
 
 #### Add Draft Tag
+
 Page is excluded from production builds entirely
+
 ```yaml
 draft: true
 ```
@@ -192,8 +200,6 @@ static/             # Static files served as-is
 
 Reference static files in content using root-relative paths: `/img/filename.jpg`
 
-
-
 ## Deployment
 
 ### GitHub Actions Workflow
@@ -203,6 +209,7 @@ The site automatically deploys to GitHub Pages when you push to the `main` branc
 **Workflow file**: [.github/workflows/hugo.yaml](.github/workflows/hugo.yaml)
 
 **What happens on push to main**:
+
 1. GitHub Actions checks out the code (including submodules)
 2. Installs Hugo CLI (v0.128.0) and Dart Sass
 3. Installs Node.js dependencies
@@ -235,13 +242,13 @@ This site uses [Dot-Org Hugo Theme](https://github.com/cncf/dot-org-hugo-theme) 
 
 ### Custom Shortcodes
 
-The theme includes custom shortcodes for enhanced markdown functionality. 
+The theme includes custom shortcodes for enhanced markdown functionality.
 
 - [Dot.Org Demo Example Formatting](https://github.com/cncf/dot-org-hugo-theme/blob/main/exampleSite/content/en/demo-page.md)
 - [Local Demo Example Formatting](content/projects/demo-page.md)
 
-
 #### Images
+
 The `img` shortcode provides more control than standard markdown image syntax and includes performance optimizations.
 
 ```md
@@ -249,6 +256,7 @@ The `img` shortcode provides more control than standard markdown image syntax an
 ```
 
 ##### Common attributes:
+
 - src (required) - Path to the image file
 - alt (optional) - Alt text for accessibility; defaults to filename if not provided
 - width and height (optional) - Recommended for better performance; prevents layout shift as the page loads
@@ -256,6 +264,7 @@ The `img` shortcode provides more control than standard markdown image syntax an
 - caption (optional) - Adds a caption below the image; supports markdown formatting
 
 #### Other Shortcodes
+
 - `{{< current_year >}}` - Insert current year
 - `{{< intro >}}` - Large intro paragraph
 - `{{< spacer >}}` or `{{< spacer 100 >}}` - Add vertical spacing
@@ -279,6 +288,7 @@ markup:
 ### Theme Customization
 
 Theme files can be overridden by placing files in the root project directories:
+
 - `layouts/` - Override theme templates
 - `assets/` - Override theme assets (CSS, JS, images)
 - `static/` - Add additional static files
@@ -293,8 +303,6 @@ git submodule update --remote --merge
 
 ⚠️ **Warning**: After updating, check for breaking changes in any files you've customized in `/layouts` and `/assets`.
 
-
-
 ## Configuration
 
 Main configuration files:
@@ -307,6 +315,7 @@ Update the `baseURL` in [hugo.toml](hugo.toml) if deploying to a different locat
 ## Helpful Hugo Resources
 
 ### Official Documentation
+
 - [Hugo Documentation](https://gohugo.io/documentation/)
 - [Directory Structure](https://gohugo.io/getting-started/directory-structure/)
 - [Content Organization](https://gohugo.io/content-management/organization/)
@@ -329,6 +338,7 @@ Update the `baseURL` in [hugo.toml](hugo.toml) if deploying to a different locat
 ```
 
 ### Key Concepts
+
 - **Content**: Lives in `content/`, organized in sections (folders)
 - **Templates**: In `layouts/`, render content into HTML
 - **Partials**: Reusable template components in `layouts/partials/`
@@ -350,13 +360,17 @@ npx -y pagefind --site public
 ## Troubleshooting
 
 ### Submodule Issues
+
 If the theme isn't loading:
+
 ```bash
 git submodule update --init --recursive
 ```
 
 ### Build Errors
+
 Check Hugo version compatibility:
+
 ```bash
 hugo version
 ```
@@ -364,7 +378,9 @@ hugo version
 Should show Hugo Extended v0.128.0 or compatible.
 
 ### Cache Issues
+
 Clear Hugo's cache:
+
 ```bash
 hugo --gc
 ```
@@ -372,6 +388,7 @@ hugo --gc
 ## Support
 
 For issues with:
+
 - **Hugo**: https://gohugo.io/
 - **Dot-Org Theme**: https://github.com/cncf/dot-org-hugo-theme/issues
 - **This Site**: Contact the development team

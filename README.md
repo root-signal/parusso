@@ -48,7 +48,14 @@ Built with Hugo static site generator, featuring a custom theme based on [Dot-Or
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v25.1.0 or compatible)
-- Hugo Extended (installed automatically as an npm dependency when you run npm install, so there's no need to install Hugo separately on your system.)
+- [Hugo Extended](https://gohugo.io/installation/) (v0.128.0 or compatible) - Install Hugo CLI tools directly on your system
+
+Verify your installations:
+
+```bash
+node --version   # Should show v25.x.x
+hugo version     # Should show hugo extended v0.128.x or compatible
+```
 
 ## Local Development
 

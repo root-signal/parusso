@@ -13,5 +13,3 @@ Before all of that I grew up in rural Massachusetts where I learned how to be bo
 
 Currently I live in Portland, Oregon where I practice art and illustrate children’s books among (too) many other hobbies, and steep in the natural beauty and creative nerdiness that fills my adopted town.
 
-Also I am a human woodchuck.
-

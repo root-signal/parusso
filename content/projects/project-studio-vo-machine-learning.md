@@ -3,6 +3,10 @@ title: "Use machine learning to process cases and save staff time "
 subtitle: "Studio VO | AllMed"
 layout: "project"
 summary: "I improved the usability of a staff-facing tool for processing insurance claims, contributing to a 30% faster case processing workflow."
+previewImage: 
+  src: "/img/halmed-user-types.png"
+  altText: "You can add alt text to your preview image here"
+  caption: "You can add a caption to your preview image here, or you can delete this and have no caption."
 slug: "studio-vo-machine-learning"
 weight: 40 # Use this to set the order it appears in the projects list
 # Description and images are for search results, social media posts, etc

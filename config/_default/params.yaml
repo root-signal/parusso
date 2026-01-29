@@ -12,6 +12,12 @@ subtitle: "UX designer and strategist"
 ### default social share image (can also be set per lang) ###
 images: ["img/social-share.png"]
 
+# Show copyright text
+show_copyright: false
+
+# Show footer navigation links
+show_footer_nav: false
+
 github:
   repo_url: "https://github.com/username/repo/blob/master"
   show_edit_link: false

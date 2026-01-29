@@ -11,6 +11,8 @@
     const menuHeadings = document.querySelectorAll('.menu-item-has-children > a');
     const dropdowns = document.querySelectorAll('.dropdown');
     const header = document.querySelector('.header .container');
+    const pageContent = document.querySelector('#content');
+    const pageFooter = document.querySelector('footer');
 
     // States.
     let closeMenuTimeout;
@@ -212,6 +214,11 @@
             }
             MenuToggleButton.setAttribute('aria-label', 'Open Menu');
             MenuToggleButton.setAttribute('aria-expanded', 'false');
+
+            // On mobile, prevent interaction with closed menu; on desktop, restore
+            mainMenu.inert = isMobile;
+            pageContent.inert = false;
+            pageFooter.inert = false;
         }
 
         if (!isMobile) {
@@ -238,10 +245,16 @@
             buttonText.textContent = 'Close';
             MenuToggleButton.setAttribute('aria-label', 'Close Menu');
             MenuToggleButton.setAttribute('aria-expanded', 'true');
+            mainMenu.inert = false;
+            pageContent.inert = true;
+            pageFooter.inert = true;
         } else {
             buttonText.textContent = 'Menu';
             MenuToggleButton.setAttribute('aria-label', 'Open Menu');
             MenuToggleButton.setAttribute('aria-expanded', 'false');
+            mainMenu.inert = true;
+            pageContent.inert = false;
+            pageFooter.inert = false;
         }
     };
 
@@ -332,6 +345,11 @@
         applyHoverIntent();
         applyDropdownListeners();
         updateHeaderTop();
+
+        // On mobile, prevent interaction with the menu until it is opened
+        if (isMobile) {
+            mainMenu.inert = true;
+        }
     });
 
 }());

@@ -3,6 +3,10 @@ title: "Operationalized continuous discovery"
 subtitle: "Ad Hoc | Department of Veterans Affairs"
 layout: "project"
 summary: "I developed a process for analyzing user feedback that helped our stakeholders identify high value features, helped the team catch and fix production bugs that were directly affecting users, and gave the team a way to track the success of releases."
+previewImage: 
+  src: "/img/tracked-feedback.png"
+  altText: "You can add alt text to your preview image here" 
+  caption: "You can add a caption to your preview image here, or you can delete this and have no caption."
 slug: "operationalized-continuous-delivery"
 weight: 10 # Use this to set the order it appears in the projects list
 # Description and images are for search results, social media posts, etc

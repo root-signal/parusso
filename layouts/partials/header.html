@@ -17,6 +17,9 @@
         {{ end }}
         
         {{ with .Site.Menus.main }}
+        <button id="menu-toggle" class="menu-toggle-button" type="button" aria-label="Open Menu" aria-expanded="false">
+            <span>Menu</span>
+        </button>
         <nav class="main-menu">
             <ul class="main-menu-wrapper">
                 {{ range . }}
@@ -69,9 +72,7 @@
             </div>
 
         </nav>
-        <button id="menu-toggle" class="menu-toggle-button" type="button" aria-label="Open Menu" aria-expanded="false">
-            <span>Menu</span>
-        </button>
+
         {{ else }}
         <p>Create pages or add <pre>.Site.Menus.main</pre> to config to activate menu.</p>
         {{ end }}

@@ -3,6 +3,19 @@
   {{ range .Pages }}
     <article>
       <h3>{{ .Title }}</h3>
+      {{ with .Params.PreviewImage }}
+        {{ if .caption}}
+          <figure>
+        {{ end }}
+          <img src="{{ .src }}" 
+            alt="{{ .altText | safeHTMLAttr }}"
+            loading="lazy"
+          />
+        {{ if .caption}}
+          <figcaption>{{ .caption | markdownify }}</figcaption>
+        </figure>
+        {{ end }}
+      {{ end }}
       <p>{{ .Summary | plainify }}</p>
       <a href="{{ .Permalink }}">{{ $.Page.Params.readMoreText }}</a>
     </article>

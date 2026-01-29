@@ -221,6 +221,7 @@
 
             &:hover {
                 color: var(--menu-link-color-hover);
+                background-color: var(--menu-link-color-hover-bg);
                 &.external-link:after,
                 &.child-external-link span.menu-item-name:after {
                     filter: invert(35%) sepia(54%) saturate(0%) hue-rotate(152deg) brightness(91%) contrast(75%);
@@ -340,9 +341,10 @@
         }
         > a {
             color: var(--link-color);
-            padding-top: 25px;
-            padding-bottom: 25px;
+            margin-top: 25px;
+            margin-bottom: 25px;
             padding-right: 5px;
+            padding-left: 5px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -356,8 +358,16 @@
             }
 
             @media (max-width: variables.$mobile-max) {
+                display: inline-flex;
                 padding: 4px 0;
                 font-weight: 500;
+                margin-top: 0;
+                margin-bottom: 0;
+
+                &:hover{
+                    color: var(--link-color);
+                    background-color: var(--link-color-bg-hover);
+                }
             }
         }
     }

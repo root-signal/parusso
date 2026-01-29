@@ -16,6 +16,7 @@
   --purple: rgba(25, 25, 112, 1);
   --butter: rgba(255, 242, 200, 1);
   --wine: rgba(137, 21, 119, 1);
+  --forest: rgb(1, 72, 41);
 
   --gray-200: #eaecf0;
   --gray-300: #e5e5e5;
@@ -36,10 +37,11 @@
 
   --menu-link-color: var(--white);
   --menu-link-color-hover: var(--butter);
-  --menu-link-color-hover-bg: var(--purple);
+  --menu-link-color-hover-bg: var(--forest);
   
   --footer-link-color: var(--white);
   --footer-link-color-hover: var(--butter);
+  --footer-link-color-hover-bg: var(--forest);
   --gutter: 25px;
   --container-width: 1000px;
   --content-width: 750px;

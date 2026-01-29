@@ -3,6 +3,10 @@ title: "Let users manage their appointments in one place"
 subtitle: "Ad Hoc | Department of Veterans Affairs"
 layout: "project"
 summary: "When we transitioned users to a new appointments tool, monthly users jumped from 500,000 to nearly 1 million. Customer satisfaction scores increased from 56% to 75% during that time, with new users responding most positively."
+previewImage: 
+  src: "/img/users-over-time.png"
+  altText: "You can add alt text to your preview image here"
+  caption: "You can add a caption to your preview image here, or you can delete this and have no caption."
 slug: "appointment-management"
 weight: 20 # Use this to set the order it appears in the projects list
 # Description and images are for search results, social media posts, etc

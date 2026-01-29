@@ -4,7 +4,7 @@ subtitle: "Studio VO | AllMed"
 layout: "project"
 summary: "I improved the usability of a staff-facing tool for processing insurance claims, contributing to a 30% faster case processing workflow."
 previewImage: 
-  src: "/img/halmed-user-types.png"
+  src: "img/halmed-user-types.png"
   altText: "You can add alt text to your preview image here"
   caption: "You can add a caption to your preview image here, or you can delete this and have no caption."
 slug: "studio-vo-machine-learning"

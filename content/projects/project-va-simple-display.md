@@ -4,7 +4,7 @@ subtitle: "Ad Hoc | Department of Veterans Affairs"
 layout: "project"
 summary: "During usability testing participants loved the simplified view of their appointments. They appreciated how clearly the sections were labeled, and how easily they could find what they needed. And when an influx of new users started using the tool, positive feedback significantly increased."
 previewImage: 
-  src: "/img/content-audit-1.png"
+  src: "img/content-audit-1.png"
   altText: "You can add alt text to your preview image here"
   caption: "You can add a caption to your preview image here, or you can delete this and have no caption."
 slug: "complex-appointment-types"

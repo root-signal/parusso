@@ -18,10 +18,11 @@ I found my first job in tech in  Portland, Ore. as a web developer. After a few 
 
 Since then I’ve designed many complex tools, helped teams work better together, and generally made life easier for a lot of people. These days I focus on Civic Tech at Ad Hoc, where I’m a Design Lead. I help multiple teams deliver health care management tools on a contract  for the U.S. Department of Veterans Affairs.
 
-I still live in Portland, Oregon with my wife and often a random dog or cat (we love pet-sitting for our friends). I practice art and illustration, and I’m a nature nerd with a rock tumbler, 
+I still live in Portland, Oregon with my wife and often a random dog or cat (we love pet-sitting for our friends). 
+
+![Peter russo with mountains and water in the background.](/img/petesitting.jpg)
 
 Check out some of my more recent/relevant [projects](projects/).
 
-Want to talk about your complex digital problem? [Let’s connect](/contact).
+Ready to talk about your complex digital problem? [Let’s connect](/contact)!
 
-![Peter russo with mountains and water in the background.](/img/selfie-halo.jpg)

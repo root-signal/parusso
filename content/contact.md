@@ -14,3 +14,4 @@ I’m excited to talk about challenging digital problems in civic tech and healt
 
 📅 Schedule time via [Calendly](https://calendly.com/outerpress/30min)
 
+![alt text](/img/pete-rainbow.jpg)

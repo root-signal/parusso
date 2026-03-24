@@ -3,8 +3,8 @@ title: Hello
 showHeader: false
 layout: home
 # Description and images are for search results, social media posts, etc
-description: I am the very model of a UX professional
-images: ["https://via.placeholder.com/250x200/d9d9d9/000000"]
+description: "Portfolio of Peter Russo, a UX Design Lead helping teams build effective tools and outstanding experiences in Civic Tech and healthcare."
+images: ["/img/pete-explains-it.jpg"]
 ---
 
 To create an outstanding experience for users, your team needs to be aligned to clear goals, confident in their decisions, and moving efficiently together. 

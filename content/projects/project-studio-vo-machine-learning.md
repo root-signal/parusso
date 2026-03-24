@@ -5,17 +5,17 @@ layout: "project"
 summary: "I improved the usability of a staff-facing tool for processing insurance claims, contributing to a 30% faster case processing workflow."
 previewImage: 
   src: "img/halmed-user-types.png"
-  altText: "You can add alt text to your preview image here"
+  altText: "Diagram showing Intake Staff, Nurse, and Doctor user types feeding into a core workflow"
   caption: "You can add a caption to your preview image here, or you can delete this and have no caption."
 slug: "studio-vo-machine-learning"
 weight: 40 # Use this to set the order it appears in the projects list
 # Description and images are for search results, social media posts, etc
-description: "TBD"
-images: ["https://via.placeholder.com/250x200/d9d9d9/000000"]
+description: "Improving usability for an AI-driven insurance claim processing tool, resulting in a 30% faster workflow and enabling smoother automation training."
+images: ["/img/halmed-user-types.png"]
 
 ---
 
-![TBD - This is alt text on an image, please remember to set it](/img/halmed-user-types.png)
+![Diagram showing Intake Staff, Nurse, and Doctor user types feeding into a core workflow](/img/halmed-user-types.png)
 
 {{< intro >}}
 I improved the usability of a staff-facing tool for processing insurance claims, contributing to a 30% faster case processing workflow.

@@ -6,13 +6,13 @@ summary: "
 I developed a process for analyzing user feedback that helped our team identify high value features, catch and fix production bugs that were directly affecting users, and track the success of releases."
 previewImage: 
   src: "img/tracked-feedback.png"
-  altText: "You can add alt text to your preview image here" 
+  altText: "Spreadsheet used to track and categorize user feedback" 
   caption: "You can add a caption to your preview image here, or you can delete this and have no caption."
 slug: "operationalized-continuous-delivery"
 weight: 10 # Use this to set the order it appears in the projects list
 # Description and images are for search results, social media posts, etc
-description: "TBD"
-images: ["https://via.placeholder.com/250x200/d9d9d9/000000"]
+description: "Establishing a continuous discovery process to analyze user feedback, identify high-value features, and track release success for VA health tools."
+images: ["/img/tracked-feedback.png"]
 
 ---
 
@@ -37,7 +37,7 @@ I developed a method to analyze  the feedback for themes, sentiment, and feature
 I refined this process over the course of 6 months to help the team and stakeholders develop a shared understanding of the most common recurring pain points, feature requests, and positive themes. 
 
 
-![TBD - This is alt text on an image, please remember to set it](/img/tracked-feedback.png)
+![Spreadsheet used to track and categorize user feedback](/img/tracked-feedback.png)
 
 
 Making this accessible to the entire team helped create a dynamic where we would check the feedback for trends during the time after we released features.

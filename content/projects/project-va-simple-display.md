@@ -5,13 +5,13 @@ layout: "project"
 summary: "During usability testing participants loved the simplified view of their appointments. They appreciated how clearly the sections were labeled, and how easily they could find what they needed. And when an influx of new users started using the tool, positive feedback significantly increased."
 previewImage: 
   src: "img/content-audit-1.png"
-  altText: "You can add alt text to your preview image here"
+  altText: "Screenshot of a content audit with sticky notes categorizing appointment types"
   caption: "You can add a caption to your preview image here, or you can delete this and have no caption."
 slug: "complex-appointment-types"
 weight: 30 # Use this to set the order it appears in the projects list
 # Description and images are for search results, social media posts, etc
-description: "TBD"
-images: ["https://via.placeholder.com/250x200/d9d9d9/000000"]
+description: "Simplifying complex VA appointment data into a clear, consistent user interface using OOUX methods, improving navigation and user comprehension."
+images: ["/img/content-audit-1.png"]
 
 ---
 
@@ -19,9 +19,9 @@ images: ["https://via.placeholder.com/250x200/d9d9d9/000000"]
 During usability testing participants loved the simplified view of their appointments. They appreciated how clearly the sections were labeled, and how easily they could find what they needed. And when an influx of new users started using the tool, positive feedback significantly increased.
 {{< /intro >}}
 
-![TBD - This is alt text on an image, please remember to set it](/img/content-audit-1.png)
-![TBD - This is alt text on an image, please remember to set it](/img/content-audit-2.png)
-![TBD - This is alt text on an image, please remember to set it](/img/content-audit-3.png)
+![Screenshot of a content audit with sticky notes categorizing appointment types](/img/content-audit-1.png)
+![Screenshot of a virtual whiteboard with organized sticky notes](/img/content-audit-2.png)
+![Wireframe showing a simplified list of appointments](/img/content-audit-3.png)
 
 ### Background
 
@@ -35,15 +35,13 @@ To make this easy to use, the language and structure needed to be consistent whe
 
 To accomplish this, I reviewed existing research to develop an appointment model. I then ran an object-oriented UX (OOUX) workshop with SMEs, stakeholders, and content specialists to define consistent types. I tested this model in multiple usability studies to make sure that it made sense to Veterans.
 
-![TBD - This is alt text on an image, please remember to set it](/img/appts-data-study.png)
+![Diagram showing the structure of appointment data fields](/img/appts-data-study.png)
 
 ### Outcome
 
 This work gave us a consistent mental model for appointments that provided structure for both the underlying data and how we presented appointments data to Veterans. It sped up future design work as we added more appointment types, as it took the guesswork out of arranging the data. 
 
 When we saw a massive new influx of users we received positive input about the tool and appointment structures.
-
-[FILE: appointment-states.png ALT: tbd CAPTION: TBD]
 
 
 [TODO: add image of final screens (in person appt is fine)]

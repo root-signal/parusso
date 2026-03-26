@@ -12,9 +12,10 @@
                     {{- partial "breadcrumb.html" . -}}
                     {{ end }}
                     {{ if eq .Params.layout "project"}}
-                        <h1>Project</h1>
-                        <h2>{{ .Title }}</h2>
-                        <span>{{ .Params.Subtitle }}</span>
+                        <h1>{{ .Title }}</h1>
+                        {{ with .Params.Subtitle }}
+                        <p class="subtitle">{{ . }}</p>
+                        {{ end }}
                     {{ else }}
                     <h1>{{ .Title }}</h1>
                     {{ end }}

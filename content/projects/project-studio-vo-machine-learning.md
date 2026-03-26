@@ -24,7 +24,6 @@ I improved the usability of a staff-facing tool for processing insurance claims,
 
 The client built an AI tool to process complex medical insurance claims (often 500+ pages). However, the interface was unusable for their staff, which meant the AI couldn't learn from human actions. Without usable workflows, the AI couldn't be trained to eventually automate the work.
 
-
 ### My work
 I joined the project after initial research was complete. Working with the lead designer, I redesigned the application focusing on human usability first—making user actions clear and sequential so the AI could learn from them in the background. We created workflows that would scale from fully human-driven to AI-assisted to fully automated as the system learned.
 

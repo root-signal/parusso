@@ -20,6 +20,12 @@ images: ["/img/service-map.png"]
 Accessibility is a core design requirement for tools on VA.gov, whose users rely on assistive devices to navigate web tools at a higher rate than other populations. I developed a checklist to test all the changes we put in front of users.
 {{< /intro >}}
 
+### Background
+
 Accessibility criteria was built into automated tests, but it didn’t catch everything, and our attempts to improve accessibility were inconsistent. So I set up an accessibility testing checklist and trained UX and developers how to run through it. This checklist was useful at every stage of the process. But it was required acceptance criteria on every front-end ticket.
 
 This led to developers testing front end work with screen readers along with other tools and fixing many issues that would have otherwise not been discovered.
+
+### My work
+
+### Outcome

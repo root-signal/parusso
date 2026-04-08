@@ -7,7 +7,7 @@ previewImage:
   src: "img/service-map.png"
   altText: "TBD"
 slug: "appointment-management"
-weight: 20 # Use this to set the order it appears in the projects list
+weight: 40 # Use this to set the order it appears in the projects list
 # Description and images are for search results, social media posts, etc
 description: "TBD"
 images: ["/img/service-map.png"]

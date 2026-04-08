@@ -8,7 +8,7 @@ images: ["/img/pete-rainbow.jpg"]
 
 I’m excited to talk about challenging digital problems in civic tech and healthcare. Feel free to reach out or schedule a short call.
 
-📧 Email: parusso@gmail.com
+📧 Email: peter@outerpress.info
 
 💼 Connect via [LinkedIn](https://www.linkedin.com/in/outerpress/)
 

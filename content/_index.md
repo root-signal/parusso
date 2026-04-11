@@ -11,10 +11,10 @@ To create an outstanding experience for users, your team needs to be aligned to 
 
 I design the tools and build the culture that helps teams work smoothly toward experiences that actually make a difference in the lives of the people who use them.
 
-Want to talk about your complex digital problem? [Let’s connect](/contact)!
-
-Or, learn more about my background:
+Learn more about my background:
 
 🧰 [Projects](projects/)
 
 🦦 [About me](/about)
+
+Or, if you're ready to talk about your complex digital problem, [let’s connect](/contact)!

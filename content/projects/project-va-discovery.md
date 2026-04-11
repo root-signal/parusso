@@ -1,13 +1,13 @@
 ---
-title: "Operationalized continuous discovery"
+title: "Using continuous discovery to inform the roadmap"
 subtitle: "Ad Hoc | Department of Veterans Affairs"
 layout: "project"
 summary: "
-I developed a process for analyzing user feedback that helped our team identify high value features, catch and fix production bugs that were directly affecting users, and track the success of releases."
+I developed a process for analyzing user feedback that helped our team identify high-value features, catch and fix production bugs that were directly affecting users, and track the success of releases."
 previewImage: 
   src: "img/tracked-feedback.png"
   altText: "Spreadsheet used to track and categorize user feedback" 
-slug: "operationalized-continuous-delivery"
+slug: "continuous-discovery"
 weight: 10 # Use this to set the order it appears in the projects list
 # Description and images are for search results, social media posts, etc
 description: "Establishing a continuous discovery process to analyze user feedback, identify high-value features, and track release success for VA health tools."
@@ -16,9 +16,8 @@ images: ["/img/tracked-feedback.png"]
 ---
 
 {{< intro >}}
-I developed a process for analyzing user feedback that helped our team identify high value features, catch and fix production bugs that were directly affecting users, and track the success of releases.
+I developed a process for analyzing user feedback that helped our team identify high-value features, catch and fix production bugs that were directly affecting users, and track the success of releases.
 {{< /intro >}}
-
 
 ## Background
 
@@ -26,11 +25,11 @@ Every day the team would receive 50-100 comments about the appointments tool thr
 
 ## My work
 
-I developed a method to analyze  the feedback for themes, sentiment, and feature requests, as well as a structure to regularly report out the findings:
+I developed a method to analyze the feedback for themes, sentiment, and feature requests, as well as a structure to regularly report out the findings:
 
 - I captured all the feedback in Excel, as all data needed to remain on the VA network to avoid exposing PHI/PII, and getting buy-in on using new tools was a challenge.
 - I coded the themes that came up regularly, along with feature requests, bugs, and outage reports.
-- I set up regular reports on the themes from feedback to the team and stakeholders. I brought users top asks to roadmap discussions. 
+- I set up regular reports on the themes from feedback to the team and stakeholders. I brought users' top asks to roadmap discussions. 
 - During major releases, I monitored feedback daily, and tracked user behavior data in Google Analytics and Datadog. If issues started emerging, we could pull the feature quickly.
 
 I refined this process over the course of 6 months to help the team and stakeholders develop a shared understanding of the most common recurring pain points, feature requests, and positive themes. 

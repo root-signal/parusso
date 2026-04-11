@@ -9,4 +9,4 @@ listIntro:
 <!-- This content appears after the list of projects, 
 which is created by adding a .md file to this directory. -->
 
-[Get in touch](/contact)
+Ready to talk about your complex digital problem? [**Let’s connect**](/contact)!

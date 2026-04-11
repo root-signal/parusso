@@ -12,6 +12,4 @@ I’m excited to talk about challenging digital problems in civic tech and healt
 
 💼 Connect via [LinkedIn](https://www.linkedin.com/in/outerpress/)
 
-📅 Schedule time via [Calendly](https://calendly.com/outerpress/30min)
-
 ![Peter smiling with sunglasses and a rainbow lens flare](/img/pete-rainbow.jpg)

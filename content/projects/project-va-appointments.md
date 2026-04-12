@@ -1,6 +1,6 @@
 ---
 title: "Easing the transition to a new health portal"
-subtitle: "Ad Hoc | Department of Veterans Affairs"
+subtitle: "Ad Hoc"
 layout: "project"
 summary: "When we transitioned users to a new appointments portal, monthly users jumped from 500,000 to nearly 1 million. Customer satisfaction scores increased from 56% to 75% during that time, with new users responding most positively."
 previewImage: 

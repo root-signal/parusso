@@ -1,6 +1,6 @@
 ---
 title: "Implementing an accessibility testing strategy"
-subtitle: "Ad Hoc | Department of Veterans Affairs"
+subtitle: "Ad Hoc"
 layout: "project"
 summary: "I developed an accessibility checklist to test all the changes we put in front of users."
 previewImage: 

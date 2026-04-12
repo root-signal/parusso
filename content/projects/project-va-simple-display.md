@@ -1,6 +1,6 @@
 ---
 title: "Making complex appointment data easy to understand"
-subtitle: "Ad Hoc | Department of Veterans Affairs"
+subtitle: "Ad Hoc"
 layout: "project"
 summary: "During usability testing, participants loved the simplified view of their appointments. They appreciated how clearly the sections were labeled, and how easily they could find what they needed. And when an influx of new users started using the tool, positive feedback significantly increased."
 previewImage: 

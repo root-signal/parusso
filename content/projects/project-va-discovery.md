@@ -1,6 +1,6 @@
 ---
 title: "Using continuous discovery to inform the roadmap"
-subtitle: "Ad Hoc | Department of Veterans Affairs"
+subtitle: "Ad Hoc"
 layout: "project"
 summary: "
 I developed a process for analyzing user feedback that helped our team identify high-value features, catch and fix production bugs that were directly affecting users, and track the success of releases."

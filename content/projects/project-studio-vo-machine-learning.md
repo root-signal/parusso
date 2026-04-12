@@ -1,6 +1,6 @@
 ---
 title: "Using machine learning to process cases and save staff time"
-subtitle: "Studio VO | AllMed"
+subtitle: "Studio VO"
 layout: "project"
 summary: "I improved the usability of a staff-facing tool for processing insurance claims, contributing to a 30% faster case processing workflow."
 previewImage: 

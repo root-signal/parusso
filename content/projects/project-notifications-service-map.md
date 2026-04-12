@@ -1,6 +1,6 @@
 ---
 title: "Mapping complex notification services"
-subtitle: "Ad Hoc | Department of Veterans Affairs"
+subtitle: "Ad Hoc"
 layout: "project"
 summary: "My service map of a complex notifications ecosystem gave our business partners a clear path to advocate for systemic change."
 previewImage: 

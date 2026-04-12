@@ -171,6 +171,10 @@
     }
 }
 
+.menu-backdrop {
+    display: none;
+}
+
 .main-menu {
     background-color: var(--white);
     padding-left: 12px;
@@ -471,4 +475,28 @@
             }
         }
     }
+}
+
+@media (max-width: variables.$mobile-max) {
+    .menu-toggle-button {
+        position: relative;
+        z-index: 6;
+    }
+
+    .menu-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 4;
+        background: transparent;
+    }
+
+    body.has-menu-active .menu-backdrop {
+        display: block;
+    }
+}
+
+#content.is-inert-fallback,
+footer.is-inert-fallback {
+    pointer-events: none;
 }

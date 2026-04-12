@@ -6,6 +6,7 @@
 
     // DOM queries.
     const MenuToggleButton = document.querySelector('#menu-toggle');
+    const menuBackdrop = document.querySelector('.menu-backdrop');
     const mainMenu = document.querySelector('.main-menu');
     const menuItems = Array.from(document.querySelectorAll('.menu-item-has-children'));
     const menuSubs = Array.from(document.querySelectorAll('.sub-menu'));
@@ -14,6 +15,7 @@
     const header = document.querySelector('.header .container');
     const pageContent = document.querySelector('#content');
     const pageFooter = document.querySelector('footer');
+    const supportsInert = 'inert' in HTMLElement.prototype;
 
     // States.
     let closeMenuTimeout;
@@ -198,33 +200,90 @@
         updateHeaderTop();
     }, 200);
 
+    const setElementInert = (element, inertValue) => {
+        if (!element) {
+            return;
+        }
+
+        if (supportsInert) {
+            element.inert = inertValue;
+            return;
+        }
+
+        if (inertValue) {
+            element.classList.add('is-inert-fallback');
+            element.setAttribute('aria-hidden', 'true');
+        } else {
+            element.classList.remove('is-inert-fallback');
+            element.removeAttribute('aria-hidden');
+        }
+    };
+
+    const setMobileInteractivityState = (menuIsOpen) => {
+        if (isMobile) {
+            setElementInert(mainMenu, !menuIsOpen);
+        } else {
+            setElementInert(mainMenu, false);
+        }
+
+        setElementInert(pageContent, menuIsOpen);
+        setElementInert(pageFooter, menuIsOpen);
+    };
+
+    const openMobileMenu = () => {
+        if (!isMobile) {
+            return;
+        }
+
+        MenuToggleButton.classList.add('is-active');
+        mainMenu.classList.add('is-active');
+        document.body.classList.add('has-menu-active');
+
+        const buttonText = MenuToggleButton.querySelector('span');
+        if (buttonText) {
+            buttonText.textContent = 'Close';
+        }
+
+        MenuToggleButton.setAttribute('aria-label', 'Close Menu');
+        MenuToggleButton.setAttribute('aria-expanded', 'true');
+
+        setMobileInteractivityState(true);
+    };
+
+    const closeMobileMenu = ({ returnFocus = false } = {}) => {
+        MenuToggleButton.classList.remove('is-active');
+        mainMenu.classList.remove('is-active');
+        document.body.classList.remove('has-menu-active');
+
+        const buttonText = MenuToggleButton.querySelector('span');
+        if (buttonText) {
+            buttonText.textContent = 'Menu';
+        }
+
+        MenuToggleButton.setAttribute('aria-label', 'Open Menu');
+        MenuToggleButton.setAttribute('aria-expanded', 'false');
+
+        setMobileInteractivityState(false);
+
+        if (returnFocus) {
+            MenuToggleButton.focus();
+        }
+    };
+
     // Event handlers,
     const handleResize = throttle(() => {
         const wasMobile = isMobile;
         isMobile = !desktopMediaQuery.matches;
 
         if (isMobile !== wasMobile) {
-            MenuToggleButton.classList.remove('is-active');
-            mainMenu.classList.remove('is-active');
-            document.body.classList.remove('has-menu-active');
-
-            // Reset button text and ARIA attributes
-            const buttonText = MenuToggleButton.querySelector('span');
-            if (buttonText) {
-                buttonText.textContent = 'Menu';
-            }
-            MenuToggleButton.setAttribute('aria-label', 'Open Menu');
-            MenuToggleButton.setAttribute('aria-expanded', 'false');
-
-            // On mobile, prevent interaction with closed menu; on desktop, restore
-            mainMenu.inert = isMobile;
-            pageContent.inert = false;
-            pageFooter.inert = false;
+            closeMobileMenu();
         }
 
         if (!isMobile) {
             menuSubs.forEach(subMenu => subMenu.style.removeProperty('display'));
         }
+
+        setMobileInteractivityState(false);
         applyHoverIntent();
         applyDropdownListeners();
         resetMenusAndDropdowns();
@@ -236,27 +295,20 @@
         if (!isMobile) {
             return;
         }
-        const isActive = MenuToggleButton.classList.toggle('is-active');
-        mainMenu.classList.toggle('is-active');
-        document.body.classList.toggle('has-menu-active');
 
-        // Update button text and ARIA attributes
-        const buttonText = MenuToggleButton.querySelector('span');
-        if (isActive) {
-            buttonText.textContent = 'Close';
-            MenuToggleButton.setAttribute('aria-label', 'Close Menu');
-            MenuToggleButton.setAttribute('aria-expanded', 'true');
-            mainMenu.inert = false;
-            pageContent.inert = true;
-            pageFooter.inert = true;
+        if (MenuToggleButton.classList.contains('is-active')) {
+            closeMobileMenu({ returnFocus: true });
         } else {
-            buttonText.textContent = 'Menu';
-            MenuToggleButton.setAttribute('aria-label', 'Open Menu');
-            MenuToggleButton.setAttribute('aria-expanded', 'false');
-            mainMenu.inert = true;
-            pageContent.inert = false;
-            pageFooter.inert = false;
+            openMobileMenu();
         }
+    };
+
+    const handleBackdropClick = () => {
+        if (!isMobile || !document.body.classList.contains('has-menu-active')) {
+            return;
+        }
+
+        closeMobileMenu({ returnFocus: true });
     };
 
     const handleHeadingClick = (e) => {
@@ -279,7 +331,16 @@
     };
 
     const handleEscapeKey = (e) => {
-        if (e.keyCode == 27) {
+        if (e.keyCode !== 27) {
+            return;
+        }
+
+        if (isMobile && document.body.classList.contains('has-menu-active')) {
+            closeMobileMenu({ returnFocus: true });
+            return;
+        }
+
+        if (!isMobile) {
             startCloseMenuTimeout();
         }
     };
@@ -342,15 +403,14 @@
         window.addEventListener('scroll', handleScroll); 
         document.addEventListener('keydown', handleEscapeKey);
         MenuToggleButton?.addEventListener('click', handleMenuToggleButtonClick);
+        menuBackdrop?.addEventListener('click', handleBackdropClick);
         menuHeadings.forEach(heading => heading.addEventListener('click', handleHeadingClick));
         applyHoverIntent();
         applyDropdownListeners();
         updateHeaderTop();
 
-        // On mobile, prevent interaction with the menu until it is opened
-        if (isMobile) {
-            mainMenu.inert = true;
-        }
+        // On mobile, prevent interaction with the menu until it is opened.
+        setMobileInteractivityState(false);
     });
 
 }());

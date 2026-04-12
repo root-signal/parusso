@@ -78,19 +78,24 @@ article {
   @media (min-width: variables.$min-desktop) {
     justify-content: space-between;
   }
+  @media (max-width: variables.$mobile-xs-max) {
+    flex-direction: column;
+    gap: 20px;
+  }
 
   .home-title {
     flex-shrink: 1;
     display: flex;
     align-items: center;
+    @media (max-width: variables.$mobile-xs-max) {
+      justify-content: center;
+    }
   }
 
   .home-face {
     display: flex;
     align-items: center;
-    @media (min-width: variables.$min-desktop) {
-      justify-content: center;
-    }
+    justify-content: center;
   }
 
   h1{

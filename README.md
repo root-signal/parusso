@@ -64,7 +64,7 @@ hugo version     # Should show hugo extended v0.128.x or compatible
 1. Clone the repository with submodules:
 
 ```bash
-git clone --recurse-submodules https://github.com/root-signal/parusso.git
+git clone --recurse-submodules https://github.com/outerpress/parusso.git
 ```
 
 If you already cloned without submodules:
@@ -237,7 +237,7 @@ You can also trigger the workflow manually from the Actions tab in GitHub.
 
 ### Site URL
 
-The site is deployed to: `https://root-signal.github.io/parusso/`
+The site is deployed to: `https://outerpress.github.io/parusso/`
 
 ## Theme Notes
 

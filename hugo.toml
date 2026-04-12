@@ -1,4 +1,4 @@
-baseURL = 'https://root-signal.github.io/parusso/'
+baseURL = 'https://outerpress.github.io/parusso/'
 languageCode = 'en-us'
 title = 'Peter Russo'
 theme = 'dot-org-hugo-theme'

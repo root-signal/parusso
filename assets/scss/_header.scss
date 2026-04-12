@@ -102,6 +102,10 @@
         margin-top: 1rem;
         margin-bottom: 1rem;
 
+        &:hover {
+            text-decoration: underline;
+        }
+
         @media (min-width: variables.$min-desktop) {
             flex-shrink: 0;
             line-height: 1.5;

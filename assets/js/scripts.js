@@ -1,6 +1,7 @@
 (function () {
     // Constants.
     const desktopBreakpoint = 1000;
+    const desktopMediaQuery = window.matchMedia('(min-width: ' + desktopBreakpoint + 'px)');
     const animationSpeed = 1250;
 
     // DOM queries.
@@ -16,7 +17,7 @@
 
     // States.
     let closeMenuTimeout;
-    let isMobile = window.innerWidth < desktopBreakpoint;
+    let isMobile = !desktopMediaQuery.matches;
     let isAnimating = false;
 
     /**
@@ -200,7 +201,7 @@
     // Event handlers,
     const handleResize = throttle(() => {
         const wasMobile = isMobile;
-        isMobile = window.innerWidth < desktopBreakpoint;
+        isMobile = !desktopMediaQuery.matches;
 
         if (isMobile !== wasMobile) {
             MenuToggleButton.classList.remove('is-active');

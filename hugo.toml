@@ -1,4 +1,4 @@
-baseURL = 'https://outerpress.github.io/parusso/'
+baseURL = 'https://outerpress.info'
 languageCode = 'en-us'
 title = 'Peter Russo'
 theme = 'dot-org-hugo-theme'

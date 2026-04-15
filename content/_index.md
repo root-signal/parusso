@@ -15,4 +15,4 @@ Learn more about:
 
 🦦 [My background](/about)
 
-Or, if you're ready to talk about your complex digital problem, [let’s connect](/contact)!
+Ready to talk about your complex digital problem? [let’s connect](/contact)!

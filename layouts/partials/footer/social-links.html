@@ -1,5 +1,6 @@
 {{ $siteTitle := .Site.Title }}
 {{ $socialLinks := .Site.Params.social_links }}
+{{ $socialDisplayNames := dict "linkedin" "LinkedIn" }}
 {{ with $socialLinks }}
     {{ $validLinks := slice }}
     {{ range $key, $value := . }}
@@ -11,12 +12,13 @@
     {{ if gt (len $validLinks) 0 }}
     <ul class="social-links">
         {{ range $validLinks }}
+        {{ $displayName := index $socialDisplayNames .key | default (humanize .key) }}
         <li>
-            <a href="{{ .value }}" title="{{ i18n "social_link_title" (dict "SiteTitle" $siteTitle "Network" (humanize .key)) | default (printf "%s on %s" $siteTitle (humanize .key)) }}">
+            <a href="{{ .value }}" title="{{ i18n "social_link_title" (dict "SiteTitle" $siteTitle "Network" $displayName) | default (printf "%s on %s" $siteTitle $displayName) }}">
                 {{ if $.Site.Params.show_social_icons }}
-                    <img loading="lazy" width="25" height="25" src="{{ printf "img/social-icons/%s.svg" .key | absURL }}" alt="{{ (humanize .key) | safeHTMLAttr }} icon">
+                    <img loading="lazy" width="25" height="25" src="{{ printf "img/social-icons/%s.svg" .key | absURL }}" alt="{{ $displayName | safeHTMLAttr }} icon">
                 {{ end }}
-                <span>{{ (humanize .key) | safeHTMLAttr }}</span>
+                <span>{{ $displayName | safeHTMLAttr }}</span>
             </a>
         </li>
         {{ end }}

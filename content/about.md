@@ -15,7 +15,7 @@ I landed my first job in tech in Portland, Ore. as a web developer for a small f
 
 ![Peter standing in front of a whiteboard pointing at diagrams](/img/pete-explains-it.jpg)
 
-Since then I’ve helped teams design and build many complex tools, work better together, and generally make digital tools easier to use for a lot of people. These days I'm working in Civic Tech at Ad Hoc, where I’m a Design Lead. I help multiple teams deliver health care management tools on a contract for the U.S. Department of Veterans Affairs.
+Since then I’ve helped teams design and build many complex tools, work better together, and generally make digital tools easier to use for a lot of people. These days I'm working in Civic Tech at Ad Hoc, where I’m a Design Lead. I help multiple teams deliver health care management tools.
 
 I still live in Portland, Oregon with my wife and often a random dog or cat (we love pet-sitting for our friends). 
 

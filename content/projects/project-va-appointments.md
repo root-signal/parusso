@@ -27,9 +27,9 @@ Users had to navigate three different portals to access their health care inform
 To accomplish this I set up the research and testing strategy for our team:
 
 - Ran a comparative analysis between the existing portals, and health care portals in the private sector, to make sure the tool had all the features users were expecting.
-- Tested early concepts with Veterans to make sure the tool was exceeding their needs.
+- Tested early concepts with Users to make sure the tool met, and exceeded their needs.
 - Tested multiple prototypes, and asked participants in those tests to compare the prototypes with the existing functionality.
-- Ran user acceptance tests with underserved veterans, and users of assistive technology.
+- Ran user acceptance tests with underserved users, and users of assistive technology.
 - Created a seamless IA flow from one portal to the other.
 
 

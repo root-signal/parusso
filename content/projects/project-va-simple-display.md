@@ -40,7 +40,7 @@ We took that work and structured the data so it aligned across the various appoi
 
 ### Outcome
 
-This work gave us a consistent mental model for appointments that provided structure for both the underlying data and how we presented appointments data to Veterans. It sped up future design work as we added more appointment types, as it took the guesswork out of arranging the data. 
+This work gave us a consistent mental model for appointments that provided structure for both the underlying data and how we presented appointments data to users. It sped up future design work as we added more appointment types, as it took the guesswork out of arranging the data. 
 
 When we saw a massive new influx of users, we received positive input about the tool and appointment structures.
 

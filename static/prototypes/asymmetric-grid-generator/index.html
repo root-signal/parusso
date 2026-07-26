@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Asymmetric Grid Generator</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-delaunay/6.0.4/d3-delaunay.min.js"></script>
+<style>
+  :root {
+    --ink: #2b2b28;
+    --paper: #f5f2ea;
+    --line: #b8ada0;
+    --accent: #a35c3a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #e8e3d8;
+    color: var(--ink);
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+  }
+  #canvasWrap {
+    flex: 1 1 640px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  #canvasBox {
+    background:
+      linear-gradient(45deg, #ccc 25%, transparent 25%),
+      linear-gradient(-45deg, #ccc 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #ccc 75%),
+      linear-gradient(-45deg, transparent 75%, #ccc 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    background-color: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    max-width: 100%;
+  }
+  svg { display: block; max-width: 100%; height: auto; }
+  #panel {
+    flex: 0 0 300px;
+    background: #ffffff;
+    padding: 22px;
+    border-left: 1px solid #ddd6c8;
+  }
+  h1 {
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+  }
+  p.sub {
+    font-size: 12px;
+    color: #8a8378;
+    margin: 0 0 20px;
+    line-height: 1.4;
+  }
+  .row { margin-bottom: 16px; }
+  label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  label span.val { color: var(--accent); font-weight: 600; }
+  input[type=range] { width: 100%; }
+  input[type=number], input[type=color] {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #ddd6c8;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .dims { display: flex; gap: 8px; }
+  .dims > div { flex: 1; }
+  .dims label { display: block; margin-bottom: 4px; }
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: var(--ink);
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 6px;
+  }
+  button:hover { background: var(--accent); }
+  button.secondary {
+    background: #fff;
+    color: var(--ink);
+    border: 1px solid #ddd6c8;
+  }
+  button.secondary:hover { background: #f2eee4; color: var(--ink); }
+  .divider { height: 1px; background: #eee; margin: 20px 0; }
+  .toggle-row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div id="canvasWrap">
+  <div id="canvasBox">
+    <svg id="svg"></svg>
+  </div>
+</div>
+
+<div id="panel">
+  <h1>Grid Generator</h1>
+  <p class="sub">Randomized cells with roughly equal area, built from a relaxed Voronoi diagram.</p>
+
+  <div class="row">
+    <label>Canvas size</label>
+    <select id="sizePreset">
+      <optgroup label="Print (at 150 DPI)">
+        <option value="1275x1650">US Letter — 8.5 × 11 in</option>
+        <option value="1650x1275">US Letter — 11 × 8.5 in (landscape)</option>
+        <option value="1700x2200">US Legal — 8.5 × 14 in</option>
+        <option value="1500x1875">5 × 7 in</option>
+        <option value="1200x1800">8 × 12 in</option>
+        <option value="1800x2400">12 × 16 in</option>
+        <option value="1240x1754">A4 — 210 × 297 mm</option>
+        <option value="1754x1240">A4 — landscape</option>
+        <option value="1754x2481">A3 — 297 × 420 mm</option>
+        <option value="878x1240">A5 — 148 × 210 mm</option>
+      </optgroup>
+      <optgroup label="Digital / screen">
+        <option value="1920x1080">HD — 1920 × 1080</option>
+        <option value="2560x1440">2K — 2560 × 1440</option>
+        <option value="1080x1080">Square post — 1080 × 1080</option>
+        <option value="1080x1350">Portrait post — 1080 × 1350</option>
+        <option value="1080x1920">Story / Reel — 1080 × 1920</option>
+        <option value="1200x630">Social link preview — 1200 × 630</option>
+      </optgroup>
+      <optgroup label="Custom">
+        <option value="custom" selected>Custom size…</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div class="row dims">
+    <div>
+      <label>Width</label>
+      <input type="number" id="w" value="1000" step="50">
+    </div>
+    <div>
+      <label>Height</label>
+      <input type="number" id="h" value="750" step="50">
+    </div>
+  </div>
+
+  <div class="row">
+    <label>Cell count <span class="val" id="cellsVal">120</span></label>
+    <input type="range" id="cells" min="10" max="600" value="120">
+  </div>
+
+  <div class="row">
+    <label>Relaxation (evens out area) <span class="val" id="relaxVal">4</span></label>
+    <input type="range" id="relax" min="0" max="10" value="4">
+  </div>
+
+  <div class="row">
+    <label>Jitter (extra randomness) <span class="val" id="jitterVal">0.15</span></label>
+    <input type="range" id="jitter" min="0" max="0.6" value="0.15" step="0.01">
+  </div>
+
+  <div class="row">
+    <label>Stroke width <span class="val" id="strokeVal">1.2</span></label>
+    <input type="range" id="stroke" min="0.2" max="4" value="1.2" step="0.1">
+  </div>
+
+  <div class="row dims">
+    <div>
+      <label>Line color</label>
+      <input type="color" id="strokeColor" value="#2b2b28">
+    </div>
+    <div>
+      <label>Fill color</label>
+      <input type="color" id="fillColor" value="#f5f2ea">
+    </div>
+  </div>
+
+  <div class="row toggle-row">
+    <label style="margin:0;" for="transparentFill">Transparent fill</label>
+    <input type="checkbox" id="transparentFill" style="width:auto;">
+  </div>
+
+  <div class="row toggle-row">
+    <label style="margin:0;">Random seed</label>
+    <input type="number" id="seed" value="1" style="width:80px;">
+  </div>
+
+  <div class="divider"></div>
+
+  <button id="regen">New random layout</button>
+  <button class="secondary" id="downloadSvg">Open SVG in new tab</button>
+  <button class="secondary" id="downloadPng">Open PNG in new tab</button>
+</div>
+
+<script>
+// Seeded RNG so "New random layout" and slider tweaks behave predictably
+function mulberry32(a) {
+  return function() {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  }
+}
+
+let rng = mulberry32(1);
+
+function getParams() {
+  return {
+    w: +document.getElementById('w').value,
+    h: +document.getElementById('h').value,
+    n: +document.getElementById('cells').value,
+    relax: +document.getElementById('relax').value,
+    jitter: +document.getElementById('jitter').value,
+    stroke: +document.getElementById('stroke').value,
+    strokeColor: document.getElementById('strokeColor').value,
+    fillColor: document.getElementById('fillColor').value,
+    transparentFill: document.getElementById('transparentFill').checked,
+    seed: +document.getElementById('seed').value
+  };
+}
+
+function render() {
+  const p = getParams();
+  rng = mulberry32(p.seed);
+
+  document.getElementById('cellsVal').textContent = p.n;
+  document.getElementById('relaxVal').textContent = p.relax;
+  document.getElementById('jitterVal').textContent = p.jitter.toFixed(2);
+  document.getElementById('strokeVal').textContent = p.stroke.toFixed(1);
+
+  // initial random points
+  let points = d3.range(p.n).map(() => [rng() * p.w, rng() * p.h]);
+
+  // Lloyd relaxation: move each point toward its cell centroid
+  for (let iter = 0; iter < p.relax; iter++) {
+    const delaunay = d3.Delaunay.from(points);
+    const voronoi = delaunay.voronoi([0, 0, p.w, p.h]);
+    points = points.map((pt, i) => {
+      const cell = voronoi.cellPolygon(i);
+      if (!cell) return pt;
+      let cx = 0, cy = 0;
+      for (const c of cell) { cx += c[0]; cy += c[1]; }
+      cx /= cell.length; cy /= cell.length;
+      return [cx, cy];
+    });
+  }
+
+  // apply jitter after relaxation to reintroduce controlled randomness
+  if (p.jitter > 0) {
+    const cellSize = Math.sqrt((p.w * p.h) / p.n);
+    points = points.map(([x, y]) => [
+      Math.min(p.w, Math.max(0, x + (rng() - 0.5) * cellSize * p.jitter)),
+      Math.min(p.h, Math.max(0, y + (rng() - 0.5) * cellSize * p.jitter))
+    ]);
+  }
+
+  const delaunay = d3.Delaunay.from(points);
+  const voronoi = delaunay.voronoi([0, 0, p.w, p.h]);
+
+  const svg = d3.select('#svg')
+    .attr('width', p.w)
+    .attr('height', p.h)
+    .attr('viewBox', `0 0 ${p.w} ${p.h}`);
+
+  svg.selectAll('*').remove();
+
+  document.getElementById('fillColor').disabled = p.transparentFill;
+
+  if (!p.transparentFill) {
+    svg.append('rect')
+      .attr('width', p.w).attr('height', p.h)
+      .attr('fill', p.fillColor);
+  }
+
+  const g = svg.append('g')
+    .attr('fill', 'none')
+    .attr('stroke', p.strokeColor)
+    .attr('stroke-width', p.stroke)
+    .attr('stroke-linejoin', 'round');
+
+  for (let i = 0; i < points.length; i++) {
+    const cell = voronoi.cellPolygon(i);
+    if (!cell) continue;
+    g.append('path').attr('d', 'M' + cell.map(c => c.join(',')).join('L') + 'Z');
+  }
+}
+
+['w','h','cells','relax','jitter','stroke','strokeColor','fillColor','seed','transparentFill'].forEach(id => {
+  document.getElementById(id).addEventListener('input', render);
+});
+
+const sizePreset = document.getElementById('sizePreset');
+const wInput = document.getElementById('w');
+const hInput = document.getElementById('h');
+
+sizePreset.addEventListener('change', () => {
+  if (sizePreset.value === 'custom') return;
+  const [w, h] = sizePreset.value.split('x').map(Number);
+  wInput.value = w;
+  hInput.value = h;
+  render();
+});
+
+// If the user hand-edits width/height, fall back to "Custom size"
+[wInput, hInput].forEach(el => {
+  el.addEventListener('input', () => {
+    sizePreset.value = 'custom';
+  });
+});
+
+document.getElementById('regen').addEventListener('click', () => {
+  document.getElementById('seed').value = Math.floor(Math.random() * 100000);
+  render();
+});
+
+document.getElementById('downloadSvg').addEventListener('click', () => {
+  const svgEl = document.getElementById('svg');
+  const serializer = new XMLSerializer();
+  let source = serializer.serializeToString(svgEl);
+  if (!source.match(/^<svg[^>]+xmlns="http:\/\/www\.w3\.org\/2000\/svg"/)) {
+    source = source.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
+  }
+  const blob = new Blob([source], { type: 'image/svg+xml;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const win = window.open(url, '_blank');
+  if (!win) {
+    alert('Your browser blocked the new tab. Please allow pop-ups for this site and try again.');
+  }
+});
+
+document.getElementById('downloadPng').addEventListener('click', () => {
+  const p = getParams();
+  const svgEl = document.getElementById('svg');
+  const serializer = new XMLSerializer();
+  let source = serializer.serializeToString(svgEl);
+  if (!source.match(/^<svg[^>]+xmlns="http:\/\/www\.w3\.org\/2000\/svg"/)) {
+    source = source.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
+  }
+  const svgBlob = new Blob([source], { type: 'image/svg+xml;charset=utf-8' });
+  const url = URL.createObjectURL(svgBlob);
+  const img = new Image();
+  img.onload = () => {
+    const scale = 2; // export at 2x for print quality
+    const canvas = document.createElement('canvas');
+    canvas.width = p.w * scale;
+    canvas.height = p.h * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+    ctx.drawImage(img, 0, 0);
+    URL.revokeObjectURL(url);
+    canvas.toBlob((blob) => {
+      const pngUrl = URL.createObjectURL(blob);
+      const win = window.open(pngUrl, '_blank');
+      if (!win) {
+        alert('Your browser blocked the new tab. Please allow pop-ups for this site and try again.');
+      }
+    });
+  };
+  img.src = url;
+});
+
+render();
+</script>
+</body>
+</html>

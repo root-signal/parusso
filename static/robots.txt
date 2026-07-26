@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /prototypes/
+
+# Static robots.txt is used to reduce crawling of the prototypes sandbox.
+# The prototypes index page itself is also marked `noindex` in Hugo.
